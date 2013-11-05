@@ -1,0 +1,36 @@
+.rogues {
+	li {
+		@each $rogue in omid, aweatherall, bellatrix, buttrich, circ, colin_dale, cstmartin, dtpm, eddierichards, gmac, jazzyb, joeynegro, justinrobertson, jwinkonra, lvis, mathewjonson, mothersole, mrc, nathan08, nholloway, norman, omid, owensoriginal, rampling, raymundo, redbull, redlight, schlomo, superfreq, sbug, terryf, wiggleduo {
+			.#{$rogue} {
+				@if $rogue == aweatherall {@include roguecore(-45px, 0px);}
+				@else if $rogue == bellatrix {@include roguecore(0px, -45px);}
+				@else if $rogue == buttrich {@include roguecore(-45px, -45px);}
+				@else if $rogue == circ {@include roguecore(-90px, 0px);}
+				@else if $rogue == cdale {@include roguecore(-90px, -45px);}
+				@else if $rogue == cstmartin {@include roguecore(-225px, -180px);}
+				@else if $rogue == dtpm {@include roguecore(-45px, -90px);}
+				@else if $rogue == eddierichards {@include roguecore(-90px, -90px);}
+				@else if $rogue == gmac {@include roguecore(-135px, 0px);}
+				@else if $rogue == jazzyb {@include roguecore(-135px, -45px);}
+				@else if $rogue == joeynegro {@include roguecore(-135px, -90px);}
+				@else if $rogue == justinrobertson {@include roguecore(0px, -135px);}
+				@else if $rogue == jwinkonra {@include roguecore(-45px, -135px);}
+				@else if $rogue == lvis {@include roguecore(-90px, -135px);}
+				@else if $rogue == mothersole {@include roguecore(-180px, 0px);}
+				@else if $rogue == mrc {@include roguecore(-180px, -45px);}
+				@else if $rogue == nathan08 {@include roguecore(--180px, -90px);}
+				@else if $rogue == nholloway {@include roguecore(-180px, -135px);}
+				@else if $rogue == norman {@include roguecore(-0px, -225px);}
+				@else if $rogue == owensoriginal {@include roguecore(0px, -180px);}
+				@else if $rogue == raymundo {@include roguecore(-45px, -180px);}
+				@else if $rogue == redlight {@include roguecore(-135px, -180px);}
+				@else if $rogue == schlomo {@include roguecore(-180px, -180px);}
+				@else if $rogue == sbug {@include roguecore(-225px, 0px);}
+				@else if $rogue == superfreq {@include roguecore(-225px, -45px);}
+				@else if $rogue == terryf {@include roguecore(-225px, -90px);}
+				@else if $rogue == wiggleduo {@include roguecore(-225px, -135px);}
+				@else {@include roguecore(0px, 0px);}
+			}
+		}
+	}
+}

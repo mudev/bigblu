@@ -1,0 +1,30 @@
+.socfb {
+  background: url(../images/ico/soc.png) 1px 1px no-repeat;
+  display: block;
+  width: 24px;
+  height: 23px;
+  &:hover {
+    box-shadow:2px 2px 1px rgba(0,177, 255,1);
+  }
+}
+
+.socmys {
+  background: url(../images/ico/soc.png) -26px 0px no-repeat;
+  display: block;
+  width: 24px;
+  height: 23px;
+  &:hover {
+    box-shadow:2px 2px 2px rgba(0,177, 255,1);
+  }
+}
+
+.soctw {
+  background: url(../images/ico/soc.png) 0px -25px no-repeat;
+  display: block;
+  width: 24px;
+  height: 23px;
+  &:hover {
+    background: url(../images/ico/soc.png) 0px -25px no-repeat;
+    box-shadow:2px 2px 2px rgba(0,177, 255,1);
+  }
+}

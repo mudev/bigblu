@@ -1,0 +1,41 @@
+.bss {
+  background: url(sprite.png) 0px -26px no-repeat;
+  display: block;
+  width: 74px;
+  height: 73px;
+}
+
+.qsc {
+  background: url(sprite.png) -77px 0px no-repeat;
+  display: block;
+  width: 74px;
+  height: 16px;
+}
+
+.shure {
+  background: url(sprite.png) -77px -18px no-repeat;
+  display: block;
+  width: 74px;
+  height: 73px;
+}
+
+.soundweb {
+  background: url(sprite.png) -153px 0px no-repeat;
+  display: block;
+  width: 74px;
+  height: 73px;
+}
+
+.vdam {
+  background: url(sprite.png) -153px -75px no-repeat;
+  display: block;
+  width: 74px;
+  height: 24px;
+}
+
+.xta {
+  background: url(sprite.png) 0px 0px no-repeat;
+  display: block;
+  width: 75px;
+  height: 24px;
+}

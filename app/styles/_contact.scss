@@ -1,0 +1,100 @@
+@import "compass/typography/lists/horizontal-list";
+@import "compass/css3/font-face";
+@include font-face("lato-light", font-files("../fonts/lato-light-webfont.woff", "../fonts/lato-light-webfont.ttf","lato-light-webfont.eot","lato-light-webfont.svg"));
+
+@mixin rounded_borders($color, $ca, $cb, $cc, $cd, $width) 
+{ -moz-border-radius: $ca $cb $cc $cd;
+	-webkit-border-radius: $ca $cb $cc $cd; 
+	-khtml-border-radius: $ca $cb $cc $cd;
+	-o-border-radius: $ca $cb $cc $cd;
+     border-radius: $ca $cb $cc $cd;
+     border: $width $color solid;
+ }
+
+$royal_blue: rgba(7,52,227,0.35);
+$base_blue: rgba(0,71,204,0.45);
+$liteblu : rgba(11,117,227,1);
+#contactinfo {
+	display:block;
+	background: url(../images/email.png) 0px 0px no-repeat;
+	float:left;
+	width:35%;
+	min-height:100%;
+	h2 {
+		font-size:1.4em;
+		margin:0.4em 0 0 2em;
+	}
+	ul {
+		@include horizontal-list(0.5em);
+		@include rounded_borders($liteblu, 6px, 6px, 6px, 6px, 1px);
+		box-shadow:1px 1px 2px rgba(0,177, 255,1);
+		background-color:$royal_blue;
+		margin:1em 0;
+		width:50%;
+		li {
+			padding:0.55em;
+			a {
+				display:block;		
+				&:hover {
+
+				}
+			}
+			&:first-child {
+				padding-left:0.9em;
+			}
+
+		}
+	}
+}
+.jotform-form {
+	font-family:"lato-light";
+	position:relative;
+	float:right;
+	padding:1em;
+	margin:1em 0em 4em 0em;
+	background-color:$base_blue;
+	@include clearfix;
+	@include rounded_borders($royal_blue, 3px, 3px, 3px, 3px, 1px);
+	.form-header-group {
+		display:none;
+	}
+	input, textarea {
+		font-size:0.95em;
+		@include rounded_borders($royal_blue, 3px, 3px, 3px, 3px, 1px);
+		background-color:rgba(255,255,255,0.75);
+		padding:0.5em 0.25em;
+	}
+	button {
+		@include rounded_borders($royal_blue, 4px, 4px, 4px, 4px, 1px);
+	    background:#39d url('../images/bg-btn-blue.png') repeat-x scroll 0 0;
+	    border:1px solid #39D;
+	    color:#fff;
+	    text-shadow:0 -1px 0 #39d;
+	    padding:0.25em 1.5em;
+	    font-size:0.9em;
+	    margin:1em 0.5em 0 0;
+	    &:hover, &:focus {
+		    background-position:0 -5px;
+		    cursor:pointer;
+		}
+	}
+	.form-label-left {
+		margin:0.25em 0em;
+	}
+	//ul class 
+	.form-section {
+
+	}
+	//li class
+	.form-line {
+		display:block;
+	}
+	//input divs
+	.form-input {
+		margin:0;
+		padding:0.5em 0;
+	}
+	#id_6 {
+		float:right;
+	}
+}

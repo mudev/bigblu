@@ -1,0 +1,60 @@
+@import "compass/css3/font-face";
+@include font-face("lato-light", font-files("../fonts/lato-light-webfont.woff", "../fonts/lato-light-webfont.ttf","lato-light-webfont.eot","lato-light-webfont.svg"));
+$liteblu : rgba(11,117,227,1);
+#tnc {
+
+	#tnctitle {
+		display:inline-block;
+		font-size:1.3em;
+		margin-bottom:1em;
+		word-spacing:0.1em;
+	}
+	#tncdl {
+		background-image:url("../img/ico/acro.png");
+		width:24px;
+		height:24px;
+		text-indent:-999px;
+		display:inline-block;
+		margin-left:0.25em;
+		&:hover {
+			background-image:url("../img/ico/acro_over.png");
+		}
+	}
+}
+
+.accordion {
+	font-family:"lato-light";
+	padding:1em 0;
+	dt {
+		margin:0;
+		padding:0.5em 0 0.5em 0.5em;
+	}
+	dd {
+		display:none;
+		margin:1em;
+		p {
+			line-height:1.4em;
+			padding: 0 1em;
+		}
+		h3 {
+			letter-spacing:0.1em;
+			font-size:1.05em;
+			margin:0.5em 0 0.25em;
+			padding-left:1.1em;
+		}
+	}
+	a {
+		display:block;
+		color:$liteblu;
+		text-decoration:none;
+		font-size:1.15em;
+		margin:0 0 0 1em;
+		&:hover {
+			
+		}
+	}
+	.accordion_expanded {
+		display:block;
+		color: lighten($liteblu, 20);
+	}
+}
