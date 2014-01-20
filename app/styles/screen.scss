@@ -10,7 +10,7 @@
 @import "compass/typography/lists/horizontal-list";
 @import "compass/typography/lists/bullets";
 @import "companimation";
-@import "companimation/preset/special/shake";
+@import "companimation/preset/special/wiggle";
 // webfonts
 @include font-face("ranchersreg", font-files("../fonts/ranchers-regular-webfont.woff", "../fonts/ranchers-regular-webfont.ttf","ranchers-regular-webfont.eot","ranchers-regular-webfont.svg"));
 @include font-face("lato-light", font-files("../fonts/lato-light-webfont.woff", "../fonts/lato-light-webfont.ttf","lato-light-webfont.eot","lato-light-webfont.svg"));
@@ -26,9 +26,10 @@
  }
 // Colours
 $base_blue: rgba(0,71,204,0.75);//0047CC
+$flat_base: rgba(0,71,204,1);//0047CC
 $royal_blue: rgba(7,52,227,0.35);//0734E3
 $darkblu : rgba(0,13,217,1);//000DD9
-$liteblu : rgba(11,117,227,1);//0B75E3
+$liteblu : rgba(129,205,251,1);//#81CDFB
 $literblu: fade-out($liteblu, 0.65);
 $darkrblu: darken($royal_blue, 0.75);
 $white : rgba(255,255,255,1);
@@ -61,7 +62,12 @@ body {
 			border-bottom:1px solid $lgrey;
 			#nav {
 			  	@include horizontal-list-container();
-			  	
+			  	@media screen and (max-width: 550px) {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    margin-top: 1em;
+                }
 			  	ul {
 				    list-style:none;
 				    @include clearfix;
@@ -69,27 +75,49 @@ body {
 				    margin-top:1em;
 				    border-top:1px solid $lgrey;
 				    border-bottom:1px solid $lgrey;
-				    // padding-left:2.3em;
+				    padding-left:8%;
 				    @include pretty-bullets("../images/sys/sharew.png", 1px, 4px);
+				    @media screen and (max-width: 540px) {
+	                    
+	                }
+	                @media screen and (max-width: 540px) {
+	                	border-top:none;
+				    	border-bottom:none;
+						margin-top:0.25em;
+						@include pretty-bullets("../images/sys/sharew.png", 0px, 0px);
+            		}	
 				    li {
 						float: left;
 						@include clearfix;
 						width:16%;
+						@media screen and (max-width: 700px) {
+							font-size: 0.75em;
+                		}
+                		@media screen and (max-width: 480px) {
+							font-size: 0.75em;
+							float: none;
+							overflow: visible;
+                		}	
 						a {
 							display: block;
 							padding:0.5em 0 0.5em 1.25em;
 							background-color:none;
 							color:#CCC;
 							text-decoration:none;
+							&:hover {color:$flat_base;}
 							&:active {color:$royal_blue;}
-							&:link {color:$darkblu;}
-							&:focus {color:$darkblu;}
+							&:link {color:$white;}
+							&:focus {
+								color:$white;
+								text-shadow: 1px 1px 0px $flat_base;
+							}
+
 						}
 						&:hover {
 							background-color: $literblu;
 							color:$dgrey;
 							text-shadow: 2px 1px 0px #000000;
-							margin-left:0.025em;
+							//margin-left:0.025em;
 						}
 						&:visited {
 
@@ -98,56 +126,71 @@ body {
 				}
 			}
 			#hblock {
-				background-color:fade-out($base_blue, 0.3);
-				@include rounded_borders($royal_blue, 6px, 6px, 6px, 6px, 1px);
+				//background-color:fade-out($base_blue, 0.3);
+				//@include rounded_borders($royal_blue, 6px, 6px, 6px, 6px, 1px);
 				@include clearfix;			
-				margin:1em 0.75em 0 0.5em;
-				padding-bottom:0.5em;
+				padding:1em 0.75em 0 0.5em;
+				margin-bottom:0.5em;
 				@media screen and (max-width: 800px) {
                     float: left;
                 }
 				section {
-					@include span-columns(8);
+					@include span-columns(7);
+					@media screen and (max-width: 540px) {
+						@include span-columns(11);
+            		}	
 					display:block;
 					p {
-
+						margin-top: 2.5em;
+				  	}
+				  	p+p {
+				  		margin: 0.5em 1em 2em 1.5em;
 				  	}
 				}
 				h1 {
 			  		letter-spacing:0.075em;
-			  		text-shadow: 2px 1px 1px $liteblu;
+			  		text-shadow: 1px 1px 0px $liteblu;
 		  			color: $darkblu;
 			  		font-family:"ranchersreg";
-			  		font-size:2.15em;
-			  		margin:0.5em 0 0 0.5em;
+			  		font-size:1.7em;
+			  		margin:0.7em 0 0 0.5em;
 			  	}
 			  	h3 {
-			  		font-size:1.4em;
+			  		font-size:1.25em;
 			  		//color:$white;
 			  		margin:0.6em 0em 0em 1em;
 			  	}
 			  	#tel {
 		  			font-family: "lato";
-		  			text-shadow: 1px 2px 1px #000000;
+		  			text-shadow: 1px 1px 1px #FF2A00;
 		  			@include rounded_borders($darkblu, 6px, 6px, 6px, 6px, 1px);
-		  			background-color:$literblu;
-		  			color: $royal_blue;
+		  			//background-color:$literblu;
+		  			//color: $royal_blue;
 		  			float:left;
-		  			font-size: 3.1em;
-		  			letter-spacing:0.02em;
+		  			font-size: 3.7em;
+		  			letter-spacing:0.05em;
 		  			text-decoration: none;
-		  			margin: 0em 0em 0em 0.35em;
+		  			width: 90%;
+		  			margin: 0.25em 1em 0em 0.35em;
 		  			padding:0.25em 0.4em 0.25em 0.25em;
+		  			@media screen and (max-width: 480px) {
+	                    font-size: 2.75em;
+	                    letter-spacing: 0.1em;
+	                }
 		  			&:hover {
 		  				@include rounded_borders(#FFCC01, 6px, 6px, 6px, 6px, 1px);
-						background-color:$base_blue;
+						background-color:$flat_base;
 						color:#FF2A00;
+						@extend %wiggle;
+						//font-size: 3.15em;
+						letter-spacing: 0.04em;
 					}
 					#tbone {
-						padding:0;
+						padding-right:8%;
 						margin:0.25em 0 0 0;
+						width: 10%;
 						&:hover {
-							@extend %shake;
+							@extend %wiggle;
 						}	
 					}
 		  		}
@@ -155,9 +198,9 @@ body {
 		  	img {
 		  		float:left;
 		  		margin:0.5em 0.5em 0 0.2em;
-		  		
                 width: 25%;
-                @media screen and (max-width: 800px) {
+                @media screen and (max-width: 540px) {
+                	width: 50%;
                 	max-width: 100% !important;
                 	height: auto !important;
                 }
@@ -174,13 +217,14 @@ body {
 		  		width:6em;
 		  		float:left;
 		  	}
-		  	#map {
+		  	.google-map {
 		  		@include rounded_borders($royal_blue, 1px, 1px, 1px, 1px, 1px);
 		  		display:block;
-		  		width:220px;
-		  		height:268px;
-		  		top: 0.9em;
-		  		left:28.6em;
+		  		height:225px;
+		  		margin-top: 1.3em;
+                @media screen and (max-width: 480px) {
+	                display: none;  
+	            }
 		  		.gmap_marker {
 					font-size:0.65em;
 					h3 {
@@ -189,7 +233,7 @@ body {
 					p {
 						float:left;
 					}
-					images {
+					img {
 						width:30px;
 						height:20px;
 					}
@@ -510,20 +554,31 @@ body {
 		  		margin-top: 2em;
 		  		width:33%;
 		  		float: left;
+		  		@media screen and (max-width: 480px) {
+		  			line-height:0.85em;
+		  			margin-top: 0;
+        		}
 		  		img {
 		  			margin:1em 0em 1em 1em;
 		  			max-width: 100% !important;
                 	height: auto !important;
+                	@media screen and (max-width: 480px) {
+						margin: 0;
+            		}
 		  		}
 		  		p {
 		  			text-align:center;
 		  			font-size:1.25em;
+		  			@media screen and (max-width: 480px) {
+		  				font-size: 0.85em;
+		  			}
 		  		}
 		  	}
 		  	#col3 {
 		  		display:block;
 		  		position:relative;
 		  		height:100%;
+		  		max-height: 100%!important;
 		  		width:30%;
 		  		margin:0;
 		  		float: right;
@@ -531,10 +586,14 @@ body {
 	  		#manf {
 	  			@include clearfix;
 	  			display:inline-block;
-	  			margin-top:3em;
+	  			margin:0 auto;
 	  			p {
 	  				font-size:0.8em;
+	  				width: 50%;
 	  			}
+	  			.bottom {
+  					float: left;
+  				}
 	  			ul {
 	  				@include horizontal-list;
 	  				display:block;
@@ -610,7 +669,6 @@ body {
 	  		#bblist {
 	  			width:48%;
 	  			margin-right:1em;
-	  			margin-left:0.6em;
 	  		}
 	  		.accordion {
 	  			overflow:hidden;
@@ -770,6 +828,10 @@ body {
 					width:100%;
 					padding:1em 0 1em 2em;
 				}
+				img {
+					width: 100%;
+					height: 100%;
+				}
 			}
 			// About Page
 			#theabout {
@@ -799,6 +861,9 @@ body {
 				p {
 					padding:1em;
 				}
+			}
+			p {
+				float: left;
 			}
 		}
 		#systag {
@@ -838,9 +903,12 @@ body {
 		@include background-image(linear-gradient(top, $darkblu 0%,rgba(32,124,202,0.5) 43%,rgba(125,185,232,0.5) 100%));
 		@include rounded_borders($darkblu, 6px, 6px, 0px, 0px, 1px);
 		margin: 2em auto 0;
+		@media screen and (max-width: 480px) {
+	                    
+	    }
 		#footnav {
 			margin-top:1em;
-			@include horizontal-list();
+			@include horizontal-list-container();
 			a {
 				display:block;
 				color:$white;
@@ -858,7 +926,7 @@ body {
 				}
 			}
 			li {
-				padding-right:8.3em;
+				float: left;
 				padding-left:0;
 			}
 			&:first-child {
@@ -866,20 +934,25 @@ body {
 			}
 		}
 	}
-	.tipsy {
-		padding: 0.5em;
-		font-size: 0.8em;
-		// opacity: 0.8;
-		// filter: alpha(opacity=80);
-		background-image: url(../images/tipsy.gif);
+	/*
+	The animate class is apart of the element and the ng-enter class
+	is attached to the element once the enter animation event is triggered
+	*/
+	.reveal-animation.ng-enter {
+	-webkit-transition: 1s linear all; /* Safari/Chrome */
+	transition: 1s linear all; /* All other modern browsers and IE10+ */
+	 
+	/* The animation preparation code */
+	opacity: 0;
 	}
-	.tipsy-inner {
-		padding: 0.3em 0.5em 0.25em 0.5em;
-		background-color: $white;
-		@include rounded_borders($darkblu, 6px, 6px, 6px, 6px, 1px);
-		color: $darkblu;
-		max-width: 200px;
-		text-align: center;
+	 
+	/*
+	Keep in mind that you want to combine both CSS
+	classes together to avoid any CSS-specificity
+	conflicts
+	*/
+	.reveal-animation.ng-enter.ng-enter-active {
+	/* The animation code itself */
+	opacity: 1;
 	}
-	.tipsy-south { background-position: bottom center; }
 }

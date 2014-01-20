@@ -55,4 +55,4 @@
          $(window).resize(function(){changes(that);});
       });
    };
-}(jQuery));
+});

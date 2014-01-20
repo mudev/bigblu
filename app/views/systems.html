@@ -1,9 +1,9 @@
 <p id="sysplus">Don't forget - ALL our Turbosound systems include: Delivery,Setup and an Engineer.</p>
-<section id="bblist" >
+<section id="bblist" ng-controller="RigCtrl">
 	<ul class="accordion" id="vertical">
-		<li class="slide-01">
+		<li class="slide-01" ng-repeat="rig in rigs">
 			<div>
-				<h2>Party System</h2>
+				<h2>{{rig.type}} System</h2>
 				<div class="spkrico">
 					<img src="images/sys/spkr_on.png" alt="sys_on icon">
 					<img src="images/sys/spkr_off.png" alt="sys_off icon">
@@ -11,49 +11,14 @@
 				</div>
 				<div>
 					<!-- <p>Pubs, Clubs &amp; Parties - this package does it with plenty spare ;)</p> -->
-					<h3>1000W Turbosound System</h3>
-					<p>Covers rooms of(approx)50-150 people</p>
+					<h3>{{rig.size}} Turbosound System</h3>
+					<p>Covers 50-150 people</p>
 					<p class="pricer">Prices from &gt;&gt;&gt;&gt;</p>
-					<span>£300</span>
+					<span>£{{rig.price}}</span>
 				</div>
 			</div>
 		</li>
-		<li class="slide-02">
-			<div>
-				<h2>Function System</h2>
-				<div class="spkrico">
-					<img src="images/sys/spkr_on.png" alt="sys_on icon">
-					<img src="images/sys/spkr_on.png" alt="sys_on icon">
-					<img src="images/sys/spkr_off.png" alt="sys_off icon">
-				</div>
-				<div>
-					<!-- <p>Our Medium sized system - suitable for larger Pubs, Clubs &amp; Weddings</p> -->
-					<h3>5kW Turbosound System</h3>
-					<p>Covers functions of(approx)150-350 people</p>
-					<p class="pricer">Prices from &gt;&gt;&gt;&gt;</p>
-					<span><strong>£500</strong></span>
-				</div>
-			</div>
-		</li>
-		<li class="slide-03">
-			<div>
-				<h2>Event System</h2>
-				<div class="spkrico">
-					<img src="images/sys/spkr_on.png" alt="sys_on icon">
-					<img src="images/sys/spkr_on.png" alt="sys_on icon">
-					<img src="images/sys/spkr_on.png" alt="sys_on icon">
-				</div>
-				<div>
-					<!-- <p>Our Largest system - massive sound for clubs,functions,venues,product launches,fashion shows,carnivals,larger weddings</p> -->
-					<h3>15kW Turbosound system</h3>
-					<!-- <p class="pre">(Yes, that's really TEN THOUSAND WATTS!!)</p> -->
-					<p>Covers events of 300+ people</p>
-					<p class="pricer">Prices from &gt;&gt;&gt;&gt;</p>
-					<span>£800</span>
-				</div>
-			</div>
-		</li>
-	</ul>
+	</ul> 
 </section>
 <section id="bbslide">
 	<div id="syslide">
@@ -107,3 +72,6 @@
 		</div>
 	</div> 
 </section>
+</div>
+<p id="systag" >Not sure what you need? Call us now. We can make it work for you.</p>
+<div class="push"></div>	

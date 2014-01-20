@@ -10,96 +10,102 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
       <!-- build:css(.tmp) styles/main.css -->
       <link rel="stylesheet" href="styles/screen.css">
+      <link href="styles/angular-carousel.css" rel="stylesheet"/>
       <!-- endbuild -->
 </head>
 <body ng-app="bbangApp">
-  
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
-    <!--[if lt IE 9]>
-      <script src="bower_components/es5-shim/es5-shim.js"></script>
-      <script src="bower_components/json3/lib/json3.min.js"></script>
-    <![endif]-->
-
-    <!-- Add your site or application content here -->
-    <div class="container">
-      <div id="page" >
-        <header>
-          <img src="images/BBLogo.png" alt="Big Blue Audio Logo">
-          <nav id="nav">
-            <ul>
-                <li ng-class="homeActive"><a href="#">Home</a></li>
-                <li ng-class="systemActive"><a href="#/systems">Systems</a></li>
-                <li ng-class="termActive"><a href="#/terms">Terms</a></li>
-                <li ng-class="abtActive"><a href="#/about">About Us</a></li>
-                <li ng-class="CtcActive"><a href="#/contact">Contact</a></li>
-            </ul> 
-          </nav>
-          <div id="hblock">
-            <section>
-              <h1>Welcome to Big Blue Audio UK</h1>
-                <h3>Turbosound P.A. Hire in the London Area</h3>
-                <p>All of our PA systems are installed and run by our friendly &amp; helpful engineers.</p>
-                <p>Call us for your personal quote today</p>
-                <a id="tel" href="callto:07775893130" target="_self"><img id="tbone" src="images/sys/mobile.png" alt="mobile logo">07775 893130</a>
-            </section>
-            <div id="map"></div>
-          </div>
-          <div id="roguectl">
-              <h2>Our Clients:</h2>
-              <a id="rstop" href="#">pause</a>
-              <a id="rgo" href="#">play</a>
-          </div>
-          <div class="rogues">
-            <ul>
-              <li><a class="wiggleduo" href="http://www.wigglelondon.com/"><h4>Wiggle</h4></a></li>
-              <li><a class="terryf" href="http://www.youtube.com/watch?v=9PpWz_WBUJk"><h4>Terry Francis</h4></a></li>
-              <li><a class="nathan08" href="http://www.djnathancoles.com/"><h4>Nathan Coles</h4></a></li>
-              <li><a class="superfreq" href="http://superfreq.org/"><h4>Superfreq</h4></a></li>
-              <li><a class="mrc" href="http://soundcloud.com/mrcsuperfreq"><h4>Mr.C</h4></a></li>
-              <li><a class="eddierichards" href="http://www.eddierichards.net/"><h4>Eddie Richards</h4></a></li>
-              <li><a class="mothersole" href="http://www.facebook.com/pages/Dave-Mothersole/126764627374602"><h4>Dave Mothesole</h4></a></li>
-              <li><a class="owensoriginal" href="http://www.facebook.com/pages/Robert-Owens/167358279947609"><h4>Robert Owens</h4></a></li>
-              <li><a class="mathewjonson" href="http://www.facebook.com/MathewJonson808"><h4>Matthew Jonson</h4></a></li>
-              <li><a class="sbug" href="http://www.facebook.com/pages/steve-bug/8517364710"><h4>Steve Bug</h4></a></li>
-              <li><a class="schlomo" href="http://www.shlo.co.uk/"><h4>Schlomo</h4></a></li>
-              <li><a class="bellatrix" href="http://www.bellatrixonline.com/"><h4>Bellatrix</h4></a></li>
-              <li><a class="dtpm" href="http://www.dtpm.net/"><h4>DTPM</h4></a></li>
-              <li><a class="circ" href=""><h4>Circus</h4></a></li>
-              <li><a class="buttrich" href="http://www.facebook.com/pages/Martin-Buttrich/292169510801"><h4>Martin Buttrich</h4></a></li>
-              <li><a class="rampling" href="http://dannyrampling.com/"><h4>Danny Rampling</h4></a></li>
-              <li><a class="joeynegro" href="http://www.facebook.com/joeynegro"><h4>Joey Negro</h4></a></li>
-              <li><a class="aweatherall" href="http://www.facebook.com/pages/Andrew-Weatherall/107264935975144"><h4>Andrew Weatherall</h4></a></li>
-              <li><a class="norman" href="http://www.normanjay.com/"><h4>Norman Jay</h4></a></li>
-              <li><a class="jwinkonra" href="http://www.joshwink.com/"><h4>Josh Wink</h4></a></li>
-              <li><a class="nholloway" href="http://www.facebook.com/pages/Nicky-Holloway/16209633996"><h4>Nicky Holloway</h4></a></li>
-              <li><a class="gmac" href="http://uk.linkedin.com/in/gordonmac1"><h4>Gordon Mac (KissFM)</h4></a></li>
-              <li><a class="jazzyb" href="http://www.jazzyb.com/"><h4>Jazzy B</h4></a></li>
-              <li><a class="omid" href="http://omid16b.com/"><h4>16B</h4></a></li>    
-              <li><a class="cdale" href="http://www.facebook.com/pages/Colin-Dale/17584431599"><h4>Colin Dale</h4></a></li>
-              <li><a class="justinrobertson" href="http://www.facebook.com/pages/justin-robertson/28628171691"><h4>Justin Robertson</h4></a></li>
-              <li><a class="raymundo" href="http://twitter.com/RaymundoNosleep"><h4>Raymundo Rodriguez</h4></a></li>
-              <li><a class="cstmartin" href="http://www.csm.arts.ac.uk/"><h4>Central St Martins</h4></a></li>
-              <li><a class="redbull" href="http://www.redbull.co.uk/"><h4>Redbull</h4></a></li>
-              <li><a class="redlight" href=""><h4>Redlight</h4></a></li>
-              <li><a class="lvis" href="http://www.facebook.com/LVis1990"><h4>L-Vis 1990</h4></a></li>
-            </ul>
-          </div>  
-        </header>
-        <div id="main" ng-view="">
-
-        </div>
-        <div class="push"></div>
+  <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+  <![endif]-->
+  <!-- Add your site or application content here -->
+  <div class="container">
+    <header>
+      <img src="images/BBLogo.png" alt="Big Blue Audio Logo">
+      <nav id="nav" ng-controller="AppCtrl">
+        <ul>
+            <li ng-class="homeActive"><a href="#">Home</a></li>
+            <li ng-class="systemActive"><a href="#/systems">Systems</a></li>
+            <li ng-class="termActive"><a href="#/terms">Terms</a></li>
+            <li ng-class="abtActive"><a href="#/about">About Us</a></li>
+            <li ng-class="CtcActive"><a href="#/contact">Contact</a></li>
+        </ul> 
+      </nav>
+      <div id="hblock">
+        <section>
+          <h1>Welcome to Big Blue Audio UK</h1>
+            <h3>Turbosound P.A. Hire in the London Area</h3>
+            <p>All of our PA systems are installed and run by our friendly &amp; helpful engineers.</p>
+            <p>Call us for your personal quote today</p>
+        </section>
+        <div class="google-map" <!-- hello-maps="" -->></div>
+        <a id="tel" href="callto:07775893130" target="_self"><img id="tbone" src="images/sys/mobile.png" alt="mobile logo">07775 893130</a>
       </div>
+      <div id="roguectl">
+          <h2>Our Clients:</h2>
+          <a id="rstop" href="">pause</a>
+          <a id="rgo" href="">play</a>
+      </div>
+      <div class="rogues">
+        <ul>
+          <li><a class="wiggleduo" href="http://www.wigglelondon.com/"><h4>Wiggle</h4></a></li>
+          <li><a class="terryf" href="http://www.youtube.com/watch?v=9PpWz_WBUJk"><h4>Terry Francis</h4></a></li>
+          <li><a class="nathan08" href="http://www.djnathancoles.com/"><h4>Nathan Coles</h4></a></li>
+          <li><a class="superfreq" href="http://superfreq.org/"><h4>Superfreq</h4></a></li>
+          <li><a class="mrc" href="http://soundcloud.com/mrcsuperfreq"><h4>Mr.C</h4></a></li>
+          <li><a class="eddierichards" href="http://www.eddierichards.net/"><h4>Eddie Richards</h4></a></li>
+          <li><a class="mothersole" href="http://www.facebook.com/pages/Dave-Mothersole/126764627374602"><h4>Dave Mothesole</h4></a></li>
+          <li><a class="owensoriginal" href="http://www.facebook.com/pages/Robert-Owens/167358279947609"><h4>Robert Owens</h4></a></li>
+          <li><a class="mathewjonson" href="http://www.facebook.com/MathewJonson808"><h4>Matthew Jonson</h4></a></li>
+          <li><a class="sbug" href="http://www.facebook.com/pages/steve-bug/8517364710"><h4>Steve Bug</h4></a></li>
+          <li><a class="schlomo" href="http://www.shlo.co.uk/"><h4>Schlomo</h4></a></li>
+          <li><a class="bellatrix" href="http://www.bellatrixonline.com/"><h4>Bellatrix</h4></a></li>
+          <li><a class="dtpm" href="http://www.dtpm.net/"><h4>DTPM</h4></a></li>
+          <li><a class="circ" href=""><h4>Circus</h4></a></li>
+          <li><a class="buttrich" href="http://www.facebook.com/pages/Martin-Buttrich/292169510801"><h4>Martin Buttrich</h4></a></li>
+          <li><a class="rampling" href="http://dannyrampling.com/"><h4>Danny Rampling</h4></a></li>
+          <li><a class="joeynegro" href="http://www.facebook.com/joeynegro"><h4>Joey Negro</h4></a></li>
+          <li><a class="aweatherall" href="http://www.facebook.com/pages/Andrew-Weatherall/107264935975144"><h4>Andrew Weatherall</h4></a></li>
+          <li><a class="norman" href="http://www.normanjay.com/"><h4>Norman Jay</h4></a></li>
+          <li><a class="jwinkonra" href="http://www.joshwink.com/"><h4>Josh Wink</h4></a></li>
+          <li><a class="nholloway" href="http://www.facebook.com/pages/Nicky-Holloway/16209633996"><h4>Nicky Holloway</h4></a></li>
+          <li><a class="gmac" href="http://uk.linkedin.com/in/gordonmac1"><h4>Gordon Mac (KissFM)</h4></a></li>
+          <li><a class="jazzyb" href="http://www.jazzyb.com/"><h4>Jazzy B</h4></a></li>
+          <li><a class="omid" href="http://omid16b.com/"><h4>16B</h4></a></li>    
+          <li><a class="cdale" href="http://www.facebook.com/pages/Colin-Dale/17584431599"><h4>Colin Dale</h4></a></li>
+          <li><a class="justinrobertson" href="http://www.facebook.com/pages/justin-robertson/28628171691"><h4>Justin Robertson</h4></a></li>
+          <li><a class="raymundo" href="http://twitter.com/RaymundoNosleep"><h4>Raymundo Rodriguez</h4></a></li>
+          <li><a class="cstmartin" href="http://www.csm.arts.ac.uk/"><h4>Central St Martins</h4></a></li>
+          <li><a class="redbull" href="http://www.redbull.co.uk/"><h4>Redbull</h4></a></li>
+          <li><a class="redlight" href=""><h4>Redlight</h4></a></li>
+          <li><a class="lvis" href="http://www.facebook.com/LVis1990"><h4>L-Vis 1990</h4></a></li>
+        </ul>
+      </div>  
+    </header>
+    <div id="main" ng-view>
     </div>
-    <script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyDGVchg4qDTw3PzSjrDrgCNqT_5xu4ZPPs" ></script>
+    <div class="push"></div>
+  </div>
+  <div id="footer">
+    <nav id="footnav">
+      <ul>
+        <li ng-class="homeActive"><a href="#">Home</a></li>
+        <li ng-class="systemActive"><a href="#/systems">Systems</a></li>
+        <li ng-class="termActive"><a href="#/terms">Terms</a></li>
+        <li ng-class="abtActive"><a href="#/about">About Us</a></li>
+        <li ng-class="CtcActive"><a href="#/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <!--<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyDGVchg4qDTw3PzSjrDrgCNqT_5xu4ZPPs" ></script> -->
+  <script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-    <script>
+  <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -107,20 +113,25 @@
 
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
-    </script>
-
-
-    <script src="scripts/flowtype.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-
-        <!-- build:js scripts/modules.js -->
-        <script src="bower_components/angular-resource/angular-resource.js"></script>
-        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-        <!-- endbuild -->
-
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <!-- endbuild -->
+  </script>
+  
+  <script src="bower_components/angular/angular.js"></script>
+  <!-- build:js scripts/modules.js -->
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-route/angular-route.min.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="scripts/angular-mobile.js"></script>
+  <script src="scripts/angular-carousel.js"></script>
+  <!-- endbuild -->
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/flowtype.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/controllers/systems.js"></script>
+  <script src="scripts/controllers/terms.js"></script>
+  <script src="scripts/controllers/nav.js"></script>
+  <!-- endbuild -->
+  
 </body>
 </html>
