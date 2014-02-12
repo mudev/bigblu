@@ -11,7 +11,7 @@ app.config(function ($routeProvider) {
         templateUrl: 'views/main.html',
         controller: function($scope) {
           $scope.setActive('home');
-        }      
+        }
       })
       .when('/systems', {
         templateUrl: 'views/systems.html',
@@ -48,11 +48,10 @@ app.directive('helloMaps', function () {
 
         latitude = latitude && parseFloat(latitude, 10) || 51.338762553296625;
         longitude = longitude && parseFloat(longitude, 10) || -0.120849609375;
-
         mapOptions = {
           zoom: 7,
           center: new google.maps.LatLng(latitude, longitude)
         };
         map = new google.maps.Map(elem[0], mapOptions);
     };
-});  
+});

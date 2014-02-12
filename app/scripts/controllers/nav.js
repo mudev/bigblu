@@ -4,7 +4,7 @@ function AppCtrl ($scope) {
     $scope.flightsActive = '';
     $scope.reservationsActive = '';
     $scope[type + 'Active'] = 'active';
-  }
+  },
   $scope.clients = [
   		{name : "Wiggle", url : "http://www.wigglelondon.com/", logo : "wiggleduo"},
   		{name : "Terry Francis", url : "http://www.youtube.com/watch?v=9PpWz_WBUJk", logo : "terryf"},
