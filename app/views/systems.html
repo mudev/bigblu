@@ -1,14 +1,14 @@
 <p id="sysplus">Don't forget - ALL our Turbosound systems include: Delivery,Setup and an Engineer.</p>
-<div ng-controller="RigCtrl">
+<div class="centred" ng-controller="RigCtrl">
 	<section id="bblist">
 		<ul class="accordion" id="vertical">
 			<li class="slide-01" ng-repeat="rig in rigs">
 				<div>
 					<h2>{{rig.type}} System</h2>
 					<div class="spkrico">
-						<img src="images/sys/spkr_on.png" alt="sys_on icon">
+					<!-- 	<img src="images/sys/spkr_on.png" alt="sys_on icon">
 						<img src="images/sys/spkr_off.png" alt="sys_off icon">
-						<img src="images/sys/spkr_off.png" alt="sys_off icon">
+						<img src="images/sys/spkr_off.png" alt="sys_off icon"> -->
 					</div>
 					<div>
 						<!-- <p>Pubs, Clubs &amp; Parties - this package does it with plenty spare ;)</p> -->
@@ -19,7 +19,9 @@
 					</div>
 				</div>
 			</li>
-		</ul> 
+		</ul>
+  </section>
+  <section id="bblist">
 		<ul id="syslide">
 			<li class="inner-slideshow" ng-repeat="pic in rigpic">
 				<!-- <div class="top">
@@ -28,7 +30,7 @@
 				<img ng-src="{{pic.src}}"/>
 				<h4>{{pic.desc}}</h4>
 			</li>
-		</ul> 
+		</ul>
 	</section>
 </div>
 <p id="systag" >Not sure what you need? Call us now. We can make it work for you.</p>

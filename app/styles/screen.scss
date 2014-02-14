@@ -50,6 +50,10 @@ body {
   .nfbody {
     margin-top:2em;
   }
+  .centred {
+    margin: 0 auto;
+    text-align: center;
+  }
   #nfbox {
     float:left;
     margin-top:1em;
@@ -639,7 +643,7 @@ body {
   			margin:0;
   		}
   		#sysplus {
-  			margin:0 0 1.5em 5.8em;
+  			margin:0 0 4% 10%;
   			font-size:1.25em;
   		}
       #systag {
@@ -670,7 +674,7 @@ body {
       			height:24px;
       		}
       		&+div {
-      			display:block;
+      			display:inline-block;
       			background-color:fade-in($base_blue, 0.4);
       			@include rounded_borders($liteblu, 6px, 6px, 6px, 6px, 1px);
       			//margin-bottom:1.35em;
@@ -694,13 +698,11 @@ body {
   				padding:0em 0.75em 1em;
   				@include clearfix;
   				p {
-  					color:darken($dgrey, 48);
   					padding:0 0.5em 1em;
   			  		line-height:1.2em;
   			  		font-size:1em;
   			  	}
   			  	span {
-  			  		position:relative;
   			  		bottom:1.8em;
   			  		float:right;
   			  		font-size:1.25em;
@@ -724,21 +726,21 @@ body {
   		  		font-size:0.95em;
   		  	}
   		  	.pricer {
-  		  		margin-top:1.5em;
+  		  		margin-top:8%;
   		  		font-size:1.8em;
   		  	}
   			}
   			h2 {
   				display:inline-block;
-  				font-size:1.8em;
+  				font-size:2.0em;
   				// margin-left:0.5em;
   				padding-bottom:0.5em;
   				word-spacing:0.05em;
-  		  	letter-spacing:0.02em;
+  		  	letter-spacing:0.3em;
   			}
   			h3 {
   				color:lighten($liteblu, 24);
-  				font-size:1.8em;
+  				font-size:1.65em;
   				margin:0.25em 0em 0em;
   				text-shadow:1px 1px 1px $literblu;
   			}
@@ -777,8 +779,10 @@ body {
   		}
   		#syslide {
   			height:20em;
+        display: inline-block;
   			@include rounded_borders($royal_blue, 6px, 6px, 6px, 6px, 2px);
   			box-shadow:2px 2px 2px $liteblu;
+        overflow: hidden;
   		}
   		#bbslide {
   			margin-bottom:1.5em;
@@ -788,10 +792,10 @@ body {
   			font-family:"lato-light";
   			position:relative;
   			max-width:100%;
-  			div {
+  			h4 {
   		    position: absolute;
   		    left: 0;
-  		    background-color: lighten($literblu, 32);
+          bottom: 0.5rem;
   			}
   			.top {
   				top:0;
