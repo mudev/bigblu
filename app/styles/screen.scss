@@ -16,9 +16,9 @@
 @include font-face("lato-light", font-files("../fonts/lato-light-webfont.woff", "../fonts/lato-light-webfont.ttf","lato-light-webfont.eot","lato-light-webfont.svg"));
 @include font-face("lato", font-files("../fonts/lato-regular-webfont.woff", "../fonts/lato-regular-webfont.ttf","lato-regular-webfont.eot","lato-regular-webfont.svg"));
 // rounded corners mixin
-@mixin rounded_borders($color, $ca, $cb, $cc, $cd, $width) 
+@mixin rounded_borders($color, $ca, $cb, $cc, $cd, $width)
 { -moz-border-radius: $ca $cb $cc $cd;
-	-webkit-border-radius: $ca $cb $cc $cd; 
+	-webkit-border-radius: $ca $cb $cc $cd;
 	-khtml-border-radius: $ca $cb $cc $cd;
 	-o-border-radius: $ca $cb $cc $cd;
      border-radius: $ca $cb $cc $cd;
@@ -47,57 +47,75 @@ body {
 	width:100%;
 	font-family:"lato";
 	color:$white;
-	.nfbody {
-		margin-top:2em;
-	}
+  .nfbody {
+    margin-top:2em;
+  }
+  #nfbox {
+    float:left;
+    margin-top:1em;
+  }
+  #nfhead {
+    float:left;
+    font-size:2.4em;
+    margin:3em 0em 2.5em 0.5em;
+    font-family:"lato";
+  }
+  #nftext, #nflink {
+    float:left;
+    margin-left:1.5em;
+  }
+  #nflink {
+    margin-top:1em;
+    a {
+      padding:0.5em;
+      font-size:1.1em;
+    }
+  }
+  // end 404
 	.container {
 		@include container;
-		// @include susy-grid-background;
 		min-height:100%;
 		height:100%;
 		margin:0 auto -2em;
-		header{	
+		header {
 			@include clearfix;
-			//padding-bottom:2em;
 			border-bottom:1px solid $lgrey;
 			#nav {
-			  	@include horizontal-list-container();
-			  	@media screen and (max-width: 550px) {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    margin-top: 1em;
-                }
-			  	ul {
-				    list-style:none;
-				    @include clearfix;
-				    display:block;
-				    margin-top:1em;
-				    border-top:1px solid $lgrey;
-				    border-bottom:1px solid $lgrey;
-				    padding-left:8%;
-				    @include pretty-bullets("../images/sys/sharew.png", 1px, 4px);
-				    @media screen and (max-width: 540px) {
-	                    
-	                }
-	                @media screen and (max-width: 540px) {
-	                	border-top:none;
-				    	border-bottom:none;
-						margin-top:0.25em;
-						@include pretty-bullets("../images/sys/sharew.png", 0px, 0px);
-            		}	
-				    li {
+		  	@include horizontal-list-container();
+		  	@media screen and (max-width: 550px) {
+          position: absolute;
+          top: 0;
+          right: 0;
+          margin-top: 1em;
+        }
+		  	ul {
+			    list-style:none;
+			    @include clearfix;
+			    display:block;
+			    margin-top:1em;
+			    border-top:1px solid $lgrey;
+			    border-bottom:1px solid $lgrey;
+			    padding-left:8%;
+			    @include pretty-bullets("../images/sys/sharew.png", 1px, 4px);
+          @media screen and (max-width: 540px) {
+          	border-top:none;
+			    	border-bottom:none;
+					  margin-top:0.25em;
+					  @include pretty-bullets("../images/sys/sharew.png", 0px, 0px);
+      		}
+			    li {
 						float: left;
 						@include clearfix;
 						width:16%;
 						@media screen and (max-width: 700px) {
-							font-size: 0.75em;
-                		}
-                		@media screen and (max-width: 480px) {
+              font-size: 0.75em;
+              display: block;
+        		}
+        		@media screen and (max-width: 550px) {
 							font-size: 0.75em;
 							float: none;
 							overflow: visible;
-                		}	
+    		    }
 						a {
 							display: block;
 							padding:0.5em 0 0.5em 1.25em;
@@ -107,126 +125,112 @@ body {
 							&:hover {color:$flat_base;}
 							&:active {color:$royal_blue;}
 							&:link {color:$white;}
-							&:focus {
-								color:$white;
-								text-shadow: 1px 1px 0px $flat_base;
-							}
-
+							&:focus {color:$white;text-shadow: 1px 1px 0px $flat_base;}
 						}
 						&:hover {
 							background-color: $literblu;
 							color:$dgrey;
 							text-shadow: 2px 1px 0px #000000;
-							//margin-left:0.025em;
-						}
-						&:visited {
-
 						}
 					}
-				}
+        }
 			}
 			#hblock {
-				//background-color:fade-out($base_blue, 0.3);
-				//@include rounded_borders($royal_blue, 6px, 6px, 6px, 6px, 1px);
-				@include clearfix;			
+				@include clearfix;
 				padding:1em 0.75em 0 0.5em;
 				margin-bottom:0.5em;
 				@media screen and (max-width: 800px) {
-                    float: left;
-                }
+          float: left;
+        }
 				section {
+          display:block;
 					@include span-columns(7);
 					@media screen and (max-width: 540px) {
 						@include span-columns(11);
-            		}	
-					display:block;
+      		}
 					p {
 						margin-top: 2.5em;
-				  	}
-				  	p+p {
-				  		margin: 0.5em 1em 2em 1.5em;
-				  	}
+			  	}
+			  	p+p {
+			  		margin: 0.5em 1em 2em 1.5em;
+			  	}
 				}
 				h1 {
-			  		letter-spacing:0.075em;
-			  		text-shadow: 1px 1px 0px $liteblu;
-		  			color: $darkblu;
-			  		font-family:"ranchersreg";
-			  		font-size:1.7em;
-			  		margin:0.7em 0 0 0.5em;
-			  	}
-			  	h3 {
-			  		font-size:1.25em;
-			  		//color:$white;
-			  		margin:0.6em 0em 0em 1em;
-			  	}
-			  	#tel {
-		  			font-family: "lato";
-		  			text-shadow: 1px 1px 1px #FF2A00;
-		  			@include rounded_borders($darkblu, 6px, 6px, 6px, 6px, 1px);
-		  			//background-color:$literblu;
-		  			//color: $royal_blue;
-		  			float:left;
-		  			font-size: 3.7em;
-		  			letter-spacing:0.05em;
-		  			text-decoration: none;
-		  			width: 90%;
-		  			margin: 0.25em 1em 0em 0.35em;
-		  			padding:0.25em 0.4em 0.25em 0.25em;
-		  			@media screen and (max-width: 480px) {
-	                    font-size: 2.75em;
-	                    letter-spacing: 0.1em;
-	                }
-		  			&:hover {
-		  				@include rounded_borders(#FFCC01, 6px, 6px, 6px, 6px, 1px);
-						background-color:$flat_base;
-						color:#FF2A00;
-						@extend %wiggle;
-						//font-size: 3.15em;
-						letter-spacing: 0.04em;
-					}
+		  		letter-spacing:0.075em;
+		  		text-shadow: 1px 1px 0px $liteblu;
+	  			color: $darkblu;
+		  		font-family:"ranchersreg";
+		  		font-size:1.7em;
+		  		margin:0.7em 0 0 0.5em;
+		  	}
+		  	h3 {
+		  		font-size:1.25em;
+		  		margin:0.6em 0em 0em 1em;
+		  	}
+		  	#tel {
+	  			font-family: "lato";
+	  			text-shadow: 1px 1px 1px #FF2A00;
+	  			font-size: 3.7em;
+	  			letter-spacing:0.05em;
+	  			text-decoration: none;
+          float:left;
+	  			width: 90%;
+	  			margin: 0.25em 1em 0em 0.35em;
+	  			padding:0.25em 0.4em 0.25em 0.25em;
+          @include rounded_borders($darkblu, 6px, 6px, 6px, 6px, 1px);
+	  			@media screen and (max-width: 480px) {
+            font-size: 2.75em;
+            letter-spacing: 0.1em;
+          }
+	  			&:hover {
+	  				@include rounded_borders(#FFCC01, 6px, 6px, 6px, 6px, 1px);
+					  background-color:$flat_base;
+					  color:#FF2A00;
+					  @extend %wiggle;
+					  letter-spacing: 0.04em;
+          }
 					#tbone {
 						padding-right:8%;
 						margin:0.25em 0 0 0;
 						width: 10%;
 						&:hover {
 							@extend %wiggle;
-						}	
+						}
 					}
-		  		}
+	  		}
 			}
-		  	img {
-		  		float:left;
-		  		margin:0.5em 0.5em 0 0.2em;
-                width: 25%;
-                @media screen and (max-width: 540px) {
-                	width: 50%;
-                	max-width: 100% !important;
-                	height: auto !important;
-                }
-		  	}
-		  	p {
-		  		font-family:"lato";
-		  		font-size:0.95em;
-		  		line-height:1.25em;
-		  		margin:0.6em 0em 0.5em 1.6em;
-		  		float:left;
-		  	}
-		  	h2 {
-		  		color:$white;
-		  		width:6em;
-		  		float:left;
-		  	}
-		  	.google-map {
-		  		@include rounded_borders($royal_blue, 1px, 1px, 1px, 1px, 1px);
-		  		display:block;
-		  		height:225px;
-		  		margin-top: 1.3em;
-                @media screen and (max-width: 480px) {
-	                display: none;  
-	            }
-		  		.gmap_marker {
-					font-size:0.65em;
+	  	img {
+	  		float:left;
+	  		margin:0.5em 0.5em 0 0.2em;
+        width: 25%;
+        @media screen and (max-width: 540px) {
+        	width: 50%;
+        	max-width: 100% !important;
+        	height: auto !important;
+        }
+	  	}
+	  	p {
+	  		font-family:"lato";
+	  		font-size:0.95em;
+	  		line-height:1.25em;
+	  		margin:0.6em 0em 0.5em 1.6em;
+	  		float:left;
+	  	}
+	  	h2 {
+	  		color:$white;
+	  		width:6em;
+	  		float:left;
+	  	}
+	  	.google-map {
+	  		@include rounded_borders($royal_blue, 1px, 1px, 1px, 1px, 1px);
+	  		display:block;
+	  		height:225px;
+	  		margin-top: 1.3em;
+        @media screen and (max-width: 550px) {
+          display: none;
+        }
+	  		.gmap_marker {
+          font-size:0.65em;
 					h3 {
 						font-size:1.1em;
 					}
@@ -237,68 +241,68 @@ body {
 						width:30px;
 						height:20px;
 					}
-				}
-		  	}
-		  	#roguectl {
-		  		position:relative;
-		  		top:-1em;
-		  		display:block;
-		  		float:left;
-		  		#rstop {
-		  			background: url(../images/sys/rstop.png) 0px 0px no-repeat;
-		  			display: block;
-		  			width: 32px;
-		  			height: 16px;
-		  			text-indent:-999px;
-		  			float:left;
-		  			margin-right:0.5em;
+			  }
+	  	}
+	  	#roguectl {
+	  		position:relative;
+	  		top:-1em;
+	  		display:block;
+	  		float:left;
+	  		#rstop {
+	  			background: url(../images/sys/rstop.png) 0px 0px no-repeat;
+	  			display: block;
+	  			width: 32px;
+	  			height: 16px;
+	  			text-indent:-999px;
+	  			float:left;
+	  			margin-right:0.5em;
 					&:hover {
 						background: url(../images/sys/rstop.png) 1px 1px no-repeat;
-			  			box-shadow:1px 1px 2px rgba(0,177, 255,1);
-			  		}
-			  		&:active{
-						background: url(../images/sys/rstop_down.png) 1px 1px no-repeat;
-			  			box-shadow:1px 1px 2px rgba(0,177, 255,1);
-			  		}
+		  			box-shadow:1px 1px 2px rgba(0,177, 255,1);
 		  		}
-		  		#rgo {
-		  			background: url(../images/sys/rgo.png) 0px 0px no-repeat;
-		  			display: block;
-		  			width: 32px;
-		  			height: 16px;
-		  			text-indent:-999px;
-		  			float:right;
-		  			&:hover {
-		  				background: url(../images/sys/rgo.png) 1px 1px no-repeat;
-			  			box-shadow:1px 1px 2px rgba(0,177, 255,1);
-			  		}
-			  		&:active {
-		  				background: url(../images/sys/rgo_down.png) 1px 1px no-repeat;
-			  			box-shadow:1px 1px 2px rgba(0,177, 255,1);
-			  		}
+		  		&:active{
+					  background: url(../images/sys/rstop_down.png) 1px 1px no-repeat;
+		  			box-shadow:1px 1px 2px rgba(0,177, 255,1);
 		  		}
 	  		}
-		  	.rogues {
-		  		position:relative;
-		  		margin-left:0.5em;
-		  		margin-bottom:1em;
-		  		width:98%;
-		  		height:2.8em;
-		  		overflow:hidden;
-		  		@include rounded_borders($liteblu, 3px, 3px, 3px, 3px, 1px);
-		  		ul {
-		  			list-style-type:none;
-		  			width:2000em;
-		  			position:absolute;
-			    	li {
+	  		#rgo {
+	  			background: url(../images/sys/rgo.png) 0px 0px no-repeat;
+	  			display: block;
+	  			width: 32px;
+	  			height: 16px;
+	  			text-indent:-999px;
+	  			float:right;
+	  			&:hover {
+	  				background: url(../images/sys/rgo.png) 1px 1px no-repeat;
+		  			box-shadow:1px 1px 2px rgba(0,177, 255,1);
+		  		}
+		  		&:active {
+	  				background: url(../images/sys/rgo_down.png) 1px 1px no-repeat;
+		  			box-shadow:1px 1px 2px rgba(0,177, 255,1);
+		  		}
+	  		}
+  		}
+	  	.rogues {
+	  		position:relative;
+	  		margin-left:0.5em;
+	  		margin-bottom:1em;
+	  		width:98%;
+	  		height:2.8em;
+	  		overflow:hidden;
+	  		@include rounded_borders($liteblu, 3px, 3px, 3px, 3px, 1px);
+	  		ul {
+	  			list-style-type:none;
+	  			width:2000em;
+	  			position:absolute;
+		    	li {
 						float: left;
 						width:7.5em;
-						@include background-image(linear-gradient(top, $darkblu 0%,rgba(32,124,202,0.5) 43%,rgba(125,185,232,0.5) 100%));
+					  @include background-image(linear-gradient(top, $darkblu 0%,rgba(32,124,202,0.5) 43%,rgba(125,185,232,0.5) 100%));
 						h4 {
-					    	margin-left:4.25em;
-					    	padding-top:0.45em;
-					    	font-size:0.8em;
-					    }
+				    	margin-left:4.25em;
+				    	padding-top:0.45em;
+				    	font-size:0.8em;
+				    }
 						a {
 							display: block;
 							height:45px;
@@ -310,649 +314,566 @@ body {
 							}
 						}
 						.omid {
-					    	display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) 0px 0px no-repeat;
+				    	display: block;
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) 0px 0px no-repeat;
 						}
 						.aweatherall {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -45px 0px no-repeat;
-						
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -45px 0px no-repeat;
 						}
 						.bellatrix {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) 0px -45px no-repeat;
-						
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) 0px -45px no-repeat;
 						}
 						.buttrich {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -45px -45px no-repeat;
-						
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -45px -45px no-repeat;
 						}
 						.circ {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -90px 0px no-repeat;
-						
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -90px 0px no-repeat;
 						}
 						.cdale {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -90px -45px no-repeat;
-						
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -90px -45px no-repeat;
 						}
 						.cstmartin {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -225px -180px no-repeat;
-						
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -225px -180px no-repeat;
 						}
 						.dtpm {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -45px -90px no-repeat;
-							
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -45px -90px no-repeat;
 						}
 						.eddierichards {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -90px -90px no-repeat;
-						
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -90px -90px no-repeat;
 						}
 						.gmac {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -135px 0px no-repeat;
-						
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -135px 0px no-repeat;
 						}
 						.jazzyb {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -135px -45px no-repeat;
-						
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -135px -45px no-repeat;
 						}
 						.joeynegro {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -135px -90px no-repeat;
-							
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -135px -90px no-repeat;
 						}
 						.justinrobertson {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) 0px -135px no-repeat;
-						
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) 0px -135px no-repeat;
 						}
 						.jwinkonra {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -45px -135px no-repeat;
-						  
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -45px -135px no-repeat;
 						}
 						.lvis{
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -90px -135px no-repeat;
-						
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -90px -135px no-repeat;
 						}
 						.mathewjonson {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -135px -135px no-repeat;
-						 
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -135px -135px no-repeat;
 						}
 						.mothersole {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -180px 0px no-repeat;
-						 
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -180px 0px no-repeat;
 						}
 						.mrc {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -180px -45px no-repeat;
-						 
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -180px -45px no-repeat;
 						}
 						.nathan08 {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -180px -95px no-repeat;
-						 
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -180px -95px no-repeat;
 						}
 						.nholloway {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -180px -135px no-repeat;
-						  
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -180px -135px no-repeat;
 						}
 						.norman {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -0px -225px no-repeat;
-						  	
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -0px -225px no-repeat;
 						}
 						.owensoriginal {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) 0px -180px no-repeat;
-						
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) 0px -180px no-repeat;
 						}
 						.rampling {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) 0px -90px no-repeat;
-						
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) 0px -90px no-repeat;
 						}
 						.raymundo {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -45px -180px no-repeat;
-						 
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -45px -180px no-repeat;
 						}
 						.redbull {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -90px -180px no-repeat;
-						  
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -90px -180px no-repeat;
 						}
 						.redlight {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -135px -180px no-repeat;
-						  
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -135px -180px no-repeat;
 						}
 						.schlomo {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -180px -180px no-repeat;
-						
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -180px -180px no-repeat;
 						}
 						.sbug {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -225px 0px no-repeat;
-						
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -225px 0px no-repeat;
 						}
 						.superfreq {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -225px -45px no-repeat;
-						 
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -225px -45px no-repeat;
 						}
 						.terryf {
 							display: block;
-					    	width: 45px;
-					    	height: 45px;
-					    	background: url(../images/face/face.png) -225px -90px no-repeat;
-						 
+				    	width: 45px;
+				    	height: 45px;
+				    	background: url(../images/face/face.png) -225px -90px no-repeat;
 						}
 						.wiggleduo {
 							display: block;
-					    	background: url(../images/face/face.png) -225px -135px no-repeat;
-					    	width: 45px;
-					    	height: 45px;
+				    	background: url(../images/face/face.png) -225px -135px no-repeat;
+				    	width: 45px;
+				    	height: 45px;
 						}
-					}
-		  		}
-		  	}
-		}
-	  	#main {
-		  	font-family:"lato";
-		  	font-size:1.05em;
-		  	color:$white;
-		  	margin-top:1.75em;
-		  	position:relative;
-		  	@include clearfix;
-		  	//Home Page
-		  	#col1 {
-		  		display: block;
-		  		left: 0;
-		  		top: 0;
-		  		//margin-right:1em;
-		  		height:100%;
-		  		max-height: 100%!important;
-		  		width:30%;
-		  		float: left;
-		  	}
-		  	#col2 {
-		  		@include clearfix;
-		  		font-family:"lato-light";
-		  		line-height:1.75em;
-		  		display:block;
-		  		margin-top: 2em;
-		  		width:33%;
-		  		float: left;
-		  		@media screen and (max-width: 480px) {
-		  			line-height:0.85em;
-		  			margin-top: 0;
-        		}
-		  		img {
-		  			margin:1em 0em 1em 1em;
-		  			max-width: 100% !important;
-                	height: auto !important;
-                	@media screen and (max-width: 480px) {
-						margin: 0;
-            		}
-		  		}
-		  		p {
-		  			text-align:center;
-		  			font-size:1.25em;
-		  			@media screen and (max-width: 480px) {
-		  				font-size: 0.85em;
-		  			}
-		  		}
-		  	}
-		  	#col3 {
-		  		display:block;
-		  		position:relative;
-		  		height:100%;
-		  		max-height: 100%!important;
-		  		width:30%;
-		  		margin:0;
-		  		float: right;
-		  	}
-	  		#manf {
-	  			@include clearfix;
-	  			display:inline-block;
-	  			margin:0 auto;
-	  			p {
-	  				font-size:0.8em;
-	  				width: 50%;
-	  			}
-	  			.bottom {
-  					float: left;
-  				}
-	  			ul {
-	  				@include horizontal-list;
-	  				display:block;
-	  				padding:0.5em 0em;
-	  				li {
-	  					padding:0em 1.5em;
-	  					position:relative;
-	  					a {
-	  						display:block;
-	  						border:1px solid transparent;
-	  						.top {
-	  							border:1px solid $white;
-	  						}
-	  						&:hover {
-	  							border:1px solid $base_blue;
-	  						}
-	  					}
-	  				}
-	  			}
-	  			.bss {
-				  background: url(../images/thumbs/sprite.png) 0px -26px no-repeat;
-				  display: block;
-				  width: 74px;
-				  height: 73px;
-				}
-
-				.qsc {
-				  background: url(../images/thumbs/sprite.png) -77px 0px no-repeat;
-				  display: block;
-				  width: 74px;
-				  height: 16px;
-				}
-
-				.shure {
-				  background: url(../images/thumbs/sprite.png) -77px -18px no-repeat;
-				  display: block;
-				  width: 74px;
-				  height: 73px;
-				}
-
-				.soundweb {
-				  background: url(../images/thumbs/sprite.png) -153px 0px no-repeat;
-				  display: block;
-				  width: 74px;
-				  height: 73px;
-				}
-
-				.vdam {
-				  background: url(../images/thumbs/sprite.png) -153px -75px no-repeat;
-				  display: block;
-				  width: 74px;
-				  height: 24px;
-				}
-
-				.xta {
-				  background: url(../images/thumbs/sprite.png) 0px 0px no-repeat;
-				  display: block;
-				  width: 75px;
-				  height: 24px;
-				}
+          }
 	  		}
-	  		// Systems page
-	  		section {
-	  			display:inline;
-	  			float:left;
-	  			width:46.5%;
-	  			margin:0;
+	  	}
+    }
+  	#main {
+	  	font-family:"lato";
+	  	font-size:1.05em;
+	  	color:$white;
+	  	margin-top:1.75em;
+	  	position:relative;
+	  	@include clearfix;
+	  	//Home Page
+	  	#col1 {
+	  		display: block;
+	  		left: 0;
+	  		top: 0;
+	  		//margin-right:1em;
+	  		height:100%;
+	  		max-height: 100%!important;
+	  		width:33%;
+	  		float: left;
+	  	}
+	  	#col2 {
+	  		@include clearfix;
+        overflow: visible;
+	  		font-family:"lato-light";
+	  		line-height:1.75em;
+	  		display:block;
+	  		margin-top: 2em;
+	  		width:33%;
+	  		float: left;
+	  		@media screen and (max-width: 480px) {
+	  			line-height:0.85em;
+	  			margin-top: 0;
+      	}
+	  		img {
+	  			margin:1em 0em 1em 1em;
+	  			max-width: 100% !important;
+        	height: auto !important;
+        	@media screen and (max-width: 480px) {
+            line-height:1.05em;
+				    margin: 0;
+      		}
 	  		}
-	  		#sysplus {
-	  			margin:0 0 1.5em 5.8em;
+	  		p {
+	  			text-align:center;
 	  			font-size:1.25em;
-	  		}	  		
-	  		#bblist {
-	  			width:48%;
-	  			margin-right:1em;
+	  			@media screen and (max-width: 550px) {
+	  				font-size: 0.65em;
+	  			}
 	  		}
-	  		.accordion {
-	  			overflow:hidden;
-		    	list-style:none;
-		    	margin-bottom:1em;
-		    	text-shadow:1px 1px 1px rgba(0,0,0,0.25);
-		    	@include rounded_borders($liteblu, 6px, 6px, 6px, 6px, 1px);
-		    	.spkrico {
-		    		display:inline-block;
-		    		position:relative;
-		    		top:0.4em;
-		    		left:0.5em;
-		    		margin:0;
-		    		padding:0;
-		    		images {
-		    			margin-top:0.25em;
-		    			width:24px;
-		    			height:24px;
-		    		}
-		    		&+div {
-		    			display:block;
-		    			background-color:fade-in($base_blue, 0.4);
-		    			@include rounded_borders($liteblu, 6px, 6px, 6px, 6px, 1px);
-		    			//margin-bottom:1.35em;
-		    		}
-		    	}
-		    	li {
-			    	float:left;
-				    width:20%;
-				    overflow:hidden;
-				    height:250px;				    
-				    -moz-transition:width 0.2s ease-out;
-				    -webkit-transition:width 0.2s ease-out;
-				    -o-transition:width 0.2s ease-out;
-				    transition:width 0.2s ease-out;
-				    -moz-transition-delay:0.15s;
-				    -webkit-transition-delay:0.15s;
-				    -o-transition-delay:0.15s;
-				    transition-delay:0.15s;
+	  	}
+	  	#col3 {
+	  		display:block;
+	  		position:relative;
+	  		height:100%;
+	  		max-height: 100%!important;
+	  		width:33%;
+	  		margin:0;
+	  		float: right;
+	  	}
+  		#manf {
+  			@include clearfix;
+  			display:table;
+  			margin:0 auto;
+  			p {
+  				font-size:0.8em;
+  			}
+  			.bottom {
+					display: table;
+          margin: 0 auto;
 				}
-				div {
-					padding:0em 0.75em 1em;
-					@include clearfix;				  	
-					p {
-						color:darken($dgrey, 48);
-						padding:0 0.5em 1em;
-				  		line-height:1.2em;
-				  		font-size:1em;
-				  	}
-				  	span {
-				  		position:relative;
-				  		bottom:1.8em;
-				  		float:right;
-				  		font-size:1.25em;
-				  		padding:0.25em 2em;
-				  		//margin-top:1.5em;
-				  		color:$base_blue;
-				  		text-shadow: 1px 1px 1px $darkrblu;
-				  		@include rounded_borders($darkblu, 6px, 6px, 6px, 6px, 2px);
-				  		background-color:$darkrblu;
-					  	&:hover {
-					  		font-family:"lato";
-					  		font-size:1.5em;
-					  		padding:0.15em 1.5em;
-			  				@include rounded_borders(#FF2A00, 6px, 6px, 6px, 6px, 2px);
-							background-color:$white;
-							letter-spacing:0.2em;
-							color:#FF2A00;
-						}
-				  	}
-				  	.pre {
-				  		font-size:0.95em;
-				  	}
-				  	.pricer {
-				  		margin-top:1.5em;
-				  		font-size:1.8em;
-				  	}
-				}
-				// .slide-03 p:last-of-type {
-			 //  		margin-top:1em;
-			 //  	}
-				h2 {
-					display:inline-block;
-					font-size:1.8em;
-					// margin-left:0.5em;
-					padding-bottom:0.5em;
-					word-spacing:0.05em;
-				  	letter-spacing:0.02em;
-				}
-				h3 {
-					color:lighten($liteblu, 24);
-					font-size:1.8em;
-					margin:0.25em 0em 0em;
-					text-shadow:1px 1px 1px $literblu;
-				}
-			}
-			#vertical{
-	  			height:303px;
-	  			@include background-image(linear-gradient(top, $darkblu 0%,rgba(32,124,202,0.5) 43%,rgba(125,185,232,0.5) 100%));
-	  			box-shadow:2px 2px 2px $liteblu;
-		  		li {
-				  	float:none;
-					height:15%;
-					width:100%;
-					-moz-transition:height 0.2s ease-out;
-					-webkit-transition:height 0.2s ease-out;
-					-o-transition:height 0.2s ease-out;
-					transition:height 0.2s ease-out;
-					// &:first-of-type {
-					//   	@include rounded_borders($liteblu, 6px, 6px, 0px, 0px, 1px);
-					// }
-					&:li:last-of-type {
-						-moz-border-radius:0 0 10px 10px;
-						-webkit-border-radius:0 0 10px 10px;
-						-o-border-radius:0 0 10px 10px;
-						border-radius:0 0 10px 10px;
-					}
-					&:hover {
-						height:65%;
-						width:100%;
-						li{
-							height:15%;
-							width:100%;
-						}
-					}
-					p {
-						font-family: "lato-light";
-						padding:0;
-					}
-				}
-			}
-			#syslide {
-				height:20em;
-				@include rounded_borders($royal_blue, 6px, 6px, 6px, 6px, 2px);
-				box-shadow:2px 2px 2px $liteblu;
-			}
-			#bbslide {
-				margin-bottom:1.5em;
-				width:48%;
-			}
-			.inner-slideshow {
-				font-family:"lato-light";
-				position:relative;
-				max-width:100%;
-				div {
-				    position: absolute;
-				    left: 0;
-				    background-color: lighten($literblu, 32);
-				}
-				.top {
-					top:0;
-					width:100%;
-					padding:1em 0 1em 2em;
-				}
-				.bottom {
-					bottom:0.5em;
-					width:100%;
-					padding:1em 0 1em 2em;
-				}
-				img {
-					width: 100%;
-					height: 100%;
-				}
-			}
-			// About Page
-			#theabout {
-				font-family: "lato-light";
-				font-size:1.2em;
-				line-height:1.5em;
-				word-spacing:0.05em;
-				a {
-					text-decoration:none;
-					color:$liteblu;
-				}
-				h2 {
-					margin-left:1em;
-					padding:0;
-					font-size:1.6em;
-				}
-				img {
-					max-width:100%;
-					height:20em;
-					float:left;
-					margin:1.5em 1.5em 5em;
-					box-shadow:2px 2px 2px $liteblu;
-					&+p {
-						margin-top:1em;
-					}
-				}
-				p {
-					padding:1em;
-				}
-			}
-			p {
-				float: left;
-			}
-		}
-		#systag {
-			font-family:"lato-light";
-  			font-size:1.6em;
-  			margin-left:5em;
+  			ul {
+  				@include horizontal-list;
+  				display:table;
+          margin: 0 auto;
+  				padding:0.5em 0em;
+  				li {
+  					padding:0em 1.5em;
+  					position:relative;
+  					a {
+  						display:block;
+  						border:1px solid transparent;
+  						.top {
+  							border:1px solid $white;
+  						}
+  						&:hover {
+  							border:1px solid $base_blue;
+  						}
+  					}
+  				}
+  			}
+  			.bss {
+  			  background: url(../images/thumbs/sprite.png) 0px -26px no-repeat;
+  			  display: block;
+  			  width: 74px;
+  			  height: 73px;
+  			}
+  			.qsc {
+  			  background: url(../images/thumbs/sprite.png) -77px 0px no-repeat;
+  			  display: block;
+  			  width: 74px;
+  			  height: 16px;
+  			}
+  			.shure {
+  			  background: url(../images/thumbs/sprite.png) -77px -18px no-repeat;
+  			  display: block;
+  			  width: 74px;
+  			  height: 73px;
+  			}
+  			.soundweb {
+  			  background: url(../images/thumbs/sprite.png) -153px 0px no-repeat;
+  			  display: block;
+  			  width: 74px;
+  			  height: 73px;
+  			}
+  			.vdam {
+  			  background: url(../images/thumbs/sprite.png) -153px -75px no-repeat;
+  			  display: block;
+  			  width: 74px;
+  			  height: 24px;
+  			}
+  			.xta {
+  			  background: url(../images/thumbs/sprite.png) 0px 0px no-repeat;
+  			  display: block;
+  			  width: 75px;
+  			  height: 24px;
+  			}
+		  }
+      #topcell {
+        display: inline-block;
+      }
+  		// Systems page
+  		section {
+  			display:inline;
+  			float:left;
+  			width:46.5%;
+  			margin:0;
   		}
-	}
-	// 404 extras
-	#nfbox {
-		float:left;
-		margin-top:1em;
-	}
-	#nfhead {
-		float:left;
-		font-size:2.4em;
-		margin:3em 0em 2.5em 0.5em;
-		font-family:"lato";
-	}
-	#nftext, #nflink {
-		float:left;
-		margin-left:1.5em;
-	}
-	#nflink {
-		margin-top:1em;
-		a {
-			padding:0.5em;
-			font-size:1.1em;
-		}
-	}
-	//footer biz
-	#footer, .push {
-		height:2em;
-	}
-	#footer {
-		@include container;
-		@include background-image(linear-gradient(top, $darkblu 0%,rgba(32,124,202,0.5) 43%,rgba(125,185,232,0.5) 100%));
-		@include rounded_borders($darkblu, 6px, 6px, 0px, 0px, 1px);
-		margin: 2em auto 0;
-		@media screen and (max-width: 480px) {
-	                    
-	    }
-		#footnav {
-			margin-top:1em;
-			@include horizontal-list-container();
-			a {
-				display:block;
-				color:$white;
-				text-decoration:none;
-				text-shadow: 2px 1px 1px $dgrey;
-				padding:0.25em 1em;
-				@include rounded_borders($darkblu, 0px, 0px, 6px, 6px, 1px);
-				&:hover {
-					background-color:$literblu;
-					color:$dgrey;
-					text-shadow: 2px 1px 0px #000000;
-				}
-				&:visited {
-					
-				}
-			}
-			li {
-				float: left;
-				padding-left:0;
-			}
-			&:first-child {
-				padding-left:0.25em;
-			}
-		}
-	}
-	/*
-	The animate class is apart of the element and the ng-enter class
-	is attached to the element once the enter animation event is triggered
-	*/
-	.reveal-animation.ng-enter {
-	-webkit-transition: 1s linear all; /* Safari/Chrome */
-	transition: 1s linear all; /* All other modern browsers and IE10+ */
-	 
-	/* The animation preparation code */
-	opacity: 0;
-	}
-	 
-	/*
-	Keep in mind that you want to combine both CSS
-	classes together to avoid any CSS-specificity
-	conflicts
-	*/
-	.reveal-animation.ng-enter.ng-enter-active {
-	/* The animation code itself */
-	opacity: 1;
-	}
+  		#sysplus {
+  			margin:0 0 1.5em 5.8em;
+  			font-size:1.25em;
+  		}
+      #systag {
+        font-family:"lato-light";
+        font-size:1.6em;
+        margin-left:5em;
+      }
+  		#bblist {
+  			width:48%;
+  			margin-right:1em;
+  		}
+  		.accordion {
+  			overflow:hidden;
+      	list-style:none;
+      	margin-bottom:1em;
+      	text-shadow:1px 1px 1px rgba(0,0,0,0.25);
+      	@include rounded_borders($liteblu, 6px, 6px, 6px, 6px, 1px);
+      	.spkrico {
+      		display:inline-block;
+      		position:relative;
+      		top:0.4em;
+      		left:0.5em;
+      		margin:0;
+      		padding:0;
+      		img {
+      			margin-top:0.25em;
+      			width:24px;
+      			height:24px;
+      		}
+      		&+div {
+      			display:block;
+      			background-color:fade-in($base_blue, 0.4);
+      			@include rounded_borders($liteblu, 6px, 6px, 6px, 6px, 1px);
+      			//margin-bottom:1.35em;
+      		}
+      	}
+      	li {
+  	    	float:left;
+  		    width:20%;
+  		    overflow:hidden;
+  		    height:250px;
+  		    -moz-transition:width 0.2s ease-out;
+  		    -webkit-transition:width 0.2s ease-out;
+  		    -o-transition:width 0.2s ease-out;
+  		    transition:width 0.2s ease-out;
+  		    -moz-transition-delay:0.15s;
+  		    -webkit-transition-delay:0.15s;
+  		    -o-transition-delay:0.15s;
+  		    transition-delay:0.15s;
+  		  }
+  			div {
+  				padding:0em 0.75em 1em;
+  				@include clearfix;
+  				p {
+  					color:darken($dgrey, 48);
+  					padding:0 0.5em 1em;
+  			  		line-height:1.2em;
+  			  		font-size:1em;
+  			  	}
+  			  	span {
+  			  		position:relative;
+  			  		bottom:1.8em;
+  			  		float:right;
+  			  		font-size:1.25em;
+  			  		padding:0.25em 2em;
+  			  		//margin-top:1.5em;
+  			  		color:$base_blue;
+  			  		text-shadow: 1px 1px 1px $darkrblu;
+  			  		@include rounded_borders($darkblu, 6px, 6px, 6px, 6px, 2px);
+  			  		background-color:$darkrblu;
+  				  	&:hover {
+  				  		font-family:"lato";
+  				  		font-size:1.5em;
+  				  		padding:0.15em 1.5em;
+  		  				@include rounded_borders(#FF2A00, 6px, 6px, 6px, 6px, 2px);
+  						background-color:$white;
+  						letter-spacing:0.2em;
+  						color:#FF2A00;
+  					}
+  		  	}
+  		  	.pre {
+  		  		font-size:0.95em;
+  		  	}
+  		  	.pricer {
+  		  		margin-top:1.5em;
+  		  		font-size:1.8em;
+  		  	}
+  			}
+  			h2 {
+  				display:inline-block;
+  				font-size:1.8em;
+  				// margin-left:0.5em;
+  				padding-bottom:0.5em;
+  				word-spacing:0.05em;
+  		  	letter-spacing:0.02em;
+  			}
+  			h3 {
+  				color:lighten($liteblu, 24);
+  				font-size:1.8em;
+  				margin:0.25em 0em 0em;
+  				text-shadow:1px 1px 1px $literblu;
+  			}
+  		}
+  		#vertical{
+  			height:303px;
+  			@include background-image(linear-gradient(top, $darkblu 0%,rgba(32,124,202,0.5) 43%,rgba(125,185,232,0.5) 100%));
+  			box-shadow:2px 2px 2px $liteblu;
+    		li {
+  		  	float:none;
+  				height:15%;
+  				width:100%;
+  				-moz-transition:height 0.2s ease-out;
+  				-webkit-transition:height 0.2s ease-out;
+  				-o-transition:height 0.2s ease-out;
+  				transition:height 0.2s ease-out;
+  				&:li:last-of-type {
+  					-moz-border-radius:0 0 10px 10px;
+  					-webkit-border-radius:0 0 10px 10px;
+  					-o-border-radius:0 0 10px 10px;
+  					border-radius:0 0 10px 10px;
+  				}
+  				&:hover {
+  					height:65%;
+  					width:100%;
+  					li{
+  						height:15%;
+  						width:100%;
+  					}
+  				}
+  				p {
+  					font-family: "lato-light";
+  					padding:0;
+  				}
+  			}
+  		}
+  		#syslide {
+  			height:20em;
+  			@include rounded_borders($royal_blue, 6px, 6px, 6px, 6px, 2px);
+  			box-shadow:2px 2px 2px $liteblu;
+  		}
+  		#bbslide {
+  			margin-bottom:1.5em;
+  			width:48%;
+  		}
+  		.inner-slideshow {
+  			font-family:"lato-light";
+  			position:relative;
+  			max-width:100%;
+  			div {
+  		    position: absolute;
+  		    left: 0;
+  		    background-color: lighten($literblu, 32);
+  			}
+  			.top {
+  				top:0;
+  				width:100%;
+  				padding:1em 0 1em 2em;
+  			}
+  			.bottom {
+  				bottom:0.5em;
+  				width:100%;
+  				padding:1em 0 1em 2em;
+  			}
+  			img {
+  				width: 100%;
+  				height: 100%;
+  			}
+  		}
+  		// About Page
+  		#theabout {
+  			font-family: "lato-light";
+  			font-size:1.2em;
+  			line-height:1.5em;
+  			word-spacing:0.05em;
+  			a {
+  				text-decoration:none;
+  				color:$liteblu;
+  			}
+  			h2 {
+  				margin-left:1em;
+  				padding:0;
+  				font-size:1.6em;
+  			}
+  			img {
+  				max-width:100%;
+  				height:20em;
+  				float:left;
+  				margin:1.5em 1.5em 5em;
+  				box-shadow:2px 2px 2px $liteblu;
+  				&+p {
+  					margin-top:1em;
+  				}
+  			}
+  			p {
+  				padding:1em;
+  			}
+  		}
+  		p {
+  			float: left;
+  		}
+    }
+  }
+  //footer biz
+  .push {
+    height:2em;
+  }
+  #footer {
+    @include container;
+    @include background-image(linear-gradient(top, $darkblu 0%,rgba(32,124,202,0.5) 43%,rgba(125,185,232,0.5) 100%));
+    @include rounded_borders($darkblu, 6px, 6px, 0px, 0px, 1px);
+    margin: 2em auto 0;
+  }
+  #footnav {
+    margin-top:1em;
+    @include horizontal-list-container();
+    a {
+      display:block;
+      color:$white;
+      text-decoration:none;
+      text-shadow: 2px 1px 1px $dgrey;
+      padding:0.25em 1em;
+      @include rounded_borders($darkblu, 0px, 0px, 6px, 6px, 1px);
+      &:hover {
+        background-color:$literblu;
+        color:$dgrey;
+        text-shadow: 2px 1px 0px #000000;
+      }
+    }
+    li {
+      float: left;
+      padding-left:0;
+    }
+    &:first-child {
+      padding-left:0.25em;
+    }
+  }
 }
