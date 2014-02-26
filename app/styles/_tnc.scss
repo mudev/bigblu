@@ -10,14 +10,14 @@ $liteblu : rgba(11,117,227,1);
 		word-spacing:0.1em;
 	}
 	#tncdl {
-		background-image:url("../img/ico/acro.png");
+		background-image:url("../images/ico/acro.png");
 		width:24px;
 		height:24px;
 		text-indent:-999px;
 		display:inline-block;
 		margin-left:0.25em;
 		&:hover {
-			background-image:url("../img/ico/acro_over.png");
+			background-image:url("../images/ico/acro_over.png");
 		}
 	}
 }
@@ -50,7 +50,7 @@ $liteblu : rgba(11,117,227,1);
 		font-size:1.15em;
 		margin:0 0 0 1em;
 		&:hover {
-			
+
 		}
 	}
 	.accordion_expanded {

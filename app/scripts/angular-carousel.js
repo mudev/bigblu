@@ -11,7 +11,7 @@
 Angular touch carousel with CSS GPU accel and slide buffering/cycling
 http://github.com/revolunet/angular-carousel
 
-TODO : 
+TODO :
  - skip initial animation
  - add/remove ngRepeat collection
  - prev/next cbs

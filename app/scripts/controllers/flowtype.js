@@ -1,5 +1,5 @@
-var mainApp = angular.module('Flowtype', []);
-mainApp.directive('flowtxt', function() {
+
+app.directive('flowtxt', function() {
     return {
         restrict: 'A',
         link: function(scope, element, attrs) {
