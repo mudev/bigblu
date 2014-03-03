@@ -9,14 +9,14 @@ app.controller('RigCtrl', function ($scope) {
   ];
   $scope.rigpic = [
       {src: 'images/slides/barpara.jpg', desc: 'Bar @ Paramount: Wiggle'},
-      {src: 'images/slides/ccut.jpg', desc: 'Image 02'},
-      {src: 'images/slides/decksviewparamount.jpg', desc: 'Image 03'},
+      {src: 'images/slides/ccut.jpg', desc: 'Clearcut Xmas Party'},
+      {src: 'images/slides/decksviewparamount.jpg', desc: 'Superfreq @ Paramount'},
       {src: 'images/slides/djkevgrif.jpg', desc: 'Image 04'},
-      {src: 'images/slides/djtiefschwarz.jpg', desc: 'Image 05'},
+      {src: 'images/slides/djtiefschwarz.jpg', desc: 'DJ Tiefschwarz @ Superfreq'},
       {src: 'images/slides/mackieatpara.jpg', desc: 'Image 06'},
-      {src: 'images/slides/natcomcafe.jpg', desc: 'Image 07'},
-      {src: 'images/slides/sam_1129.jpg', desc: 'Image 08'},
-      {src: 'images/slides/urbk.jpg', desc: 'Image 09'}
+      {src: 'images/slides/natcomcafe.jpg', desc: 'Nathan Coles @ the Cafe'},
+      {src: 'images/slides/sam_1129.jpg', desc: 'Eddie Richards @ Wiggle'},
+      {src: 'images/slides/urbk.jpg', desc: 'Urban Kings Launch Party : Kings X'}
   ];
   $scope.currentIndex = 0;
   $scope.setCurrentSlideIndex = function(index){
