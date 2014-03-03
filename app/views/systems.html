@@ -6,9 +6,6 @@
 				<div>
 					<h2>{{rig.type}} System</h2>
 					<div class="spkrico">
-					<!-- 	<img src="images/sys/spkr_on.png" alt="sys_on icon">
-						<img src="images/sys/spkr_off.png" alt="sys_off icon">
-						<img src="images/sys/spkr_off.png" alt="sys_off icon"> -->
 					</div>
 					<div>
 						<!-- <p>Pubs, Clubs &amp; Parties - this package does it with plenty spare ;)</p> -->
@@ -21,9 +18,9 @@
 			</li>
 		</ul>
   </section>
-  <section id="bblist" rn-carousel-container>
-		<ul id="syslide" rn-carousel-control>
-			<li class="inner-slideshow" ng-repeat="pic in rigpic">
+  <section id="bblist">
+		<ul id="syslide">
+			<li class="inner-slideshow slide-animation" ng-repeat="pic in rigpic" ng-hide="!isCurrentSlideIndex($index)">
 				<!-- <div class="top">
 	            	<h4>DJ Kevin Griffiths on our system</h4>
 	            </div>  -->
@@ -31,6 +28,17 @@
 				<h4>{{pic.desc}}</h4>
 			</li>
 		</ul>
+    <a class="arrow prev" ng-click="nextSlide()"></a>
+    <a class="arrow next" ng-click="prevSlide()"></a>
+    <nav class="gallerynav" >
+        <div class="wrapper">
+            <ul class="dots">
+                <li class="dot" ng-repeat="pic in rigpic">
+                    <a ng-class="{'active':isCurrentSlideIndex($index)}"
+                      ng-click="setCurrentSlideIndex($index);">{{pic.desc}}</a></li>
+            </ul>
+        </div>
+    </nav>
 	</section>
 </div>
 <p id="systag" >Not sure what you need? Call us now. We can make it work for you.</p>

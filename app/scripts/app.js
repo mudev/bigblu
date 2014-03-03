@@ -1,11 +1,13 @@
 'use strict';
 
-var app = angular.module('bbangApp', ['ngResource','ngRoute','angular-carousel']);
+var app = angular.module('bbangApp', ['ngResource','ngRoute', 'ngAnimate','angular-carousel', 'ngSanitize']);
 app.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
-        controller: 'AppCtrl'
+        controller: function ($scope) {
+          $scope.PageClass = 'main-class';
+        }
       })
       .when('/systems', {
         templateUrl: 'views/systems.html',
@@ -18,14 +20,12 @@ app.config(function ($routeProvider) {
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: function($scope) {
-
+          $scope.PageClass = 'about-class';
         }
       })
       .when('/contact', {
         templateUrl: 'views/contact.html',
-        controller: function($scope) {
-
-        }
+        controller: "ContactCtrl"
       })
       .otherwise({
         redirectTo: '/'
@@ -45,6 +45,21 @@ app.config(function ($routeProvider) {
           center: new google.maps.LatLng(latitude, longitude)
         };
         map = new google.maps.Map(elem[0], mapOptions);
+    };
+})
+.directive('flowType', function($compile){
+    return {
+      restrict: 'A',
+      link: function(scope, elem, attrs){
+        var options = {};
+        options.maximum = attrs.maximum || 9999;
+        options.minimum = attrs.minimum || 1;
+        options.minFont = attrs.minFont || 1;
+        options.maxFont = attrs.maxFont || 9999;
+        options.fontRatio = attrs.fontRatio || 35;
+        options.lineRatio = attrs.lineRatio || 1.45;
+        element.flowtype(options);
+      }
     };
 })
 .controller('AppCtrl', function ($scope) {
@@ -81,4 +96,5 @@ app.config(function ($routeProvider) {
       {name : "Redlight", url : "redlight.org", logo : "redlight"},
       {name : "L-Vis 1990", url : "http://www.facebook.com/LVis1990", logo : "lvis"},
   ];
+
 });

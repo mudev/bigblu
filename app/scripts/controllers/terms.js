@@ -1,7 +1,6 @@
 'use strict';
 
 app.controller('TermsCtrl', function($scope){
-
   $scope.toggleDefs = function () {
     scope.isContentVisible = !scope.isContentVisible;
   };
@@ -14,5 +13,6 @@ app.controller('TermsCtrl', function($scope){
       {deftitle:'Client Responsibilities', content:'Where the Client collects, operates and returns the equipment, the Client’s responsibilities will include that:<br>a) All equipment is insured as in the event of loss or damage the Client is personally liable for the cost of replacement.<br>b) The equipment is only used by competent personnel and is only used for its intended purpose.<br>c) The equipment is connected correctly and is protected by suitable fuses and proper earthing.\n<h3>Transit of equipment</h3>If the equipment is to be transported by any person other than the Supplier then the equipment must be suitably protected in transit with adequate packing and handling precautions remaining the responsibility of the Client.Equipment may not be moved outside of the United Kingdom without prior consent of the Supplier.\n'},
       {deftitle:'Damages', content:'The Client must satisfy himself that the equipment is in good order before accepting delivery.\nThe Client must declare to the supplier any damages that occur during the hire period.\nThe Client must not repair or attempt to repair damaged or faulty equipment.\nWhere equipment has failed due to an inherent fault or wear and tear the Client may submit a written claim to the Supplier at the time of return or collection of equipment.\nIf the claim is accepted by the Supplier a refund of part or all of the hire charge relating to that piece of equipment will be offered in the form of a credit note.The acceptance of any claim and the offer of a refund is not an admission of liability but simply a gesture of goodwill from the Supplier to the Client.\nThe Client shall be responsible for all expenses involved arising from any breakdown and losses of damages incurred by the Supplier due to the Client’s negligence, misdirection or misuse of the Equipment, and for payment of the hire charges during the period the Equipment is idle due to such a breakdown.\n'},
       {deftitle:'Change of Conditions', content:'The Supplier reserves the right to alter or amend the terms &amp; conditions of equipment hire without warning or prior notification\n'}
-    ]
+    ];
+  $scope.PageClass = 'terms-class';
 });

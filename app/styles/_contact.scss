@@ -2,9 +2,9 @@
 @import "compass/css3/font-face";
 @include font-face("lato-light", font-files("../fonts/lato-light-webfont.woff", "../fonts/lato-light-webfont.ttf","lato-light-webfont.eot","lato-light-webfont.svg"));
 
-@mixin rounded_borders($color, $ca, $cb, $cc, $cd, $width) 
+@mixin rounded_borders($color, $ca, $cb, $cc, $cd, $width)
 { -moz-border-radius: $ca $cb $cc $cd;
-	-webkit-border-radius: $ca $cb $cc $cd; 
+	-webkit-border-radius: $ca $cb $cc $cd;
 	-khtml-border-radius: $ca $cb $cc $cd;
 	-o-border-radius: $ca $cb $cc $cd;
      border-radius: $ca $cb $cc $cd;
@@ -34,7 +34,7 @@ $liteblu : rgba(11,117,227,1);
 		li {
 			padding:0.55em;
 			a {
-				display:block;		
+				display:block;
 				&:hover {
 
 				}
@@ -49,13 +49,13 @@ $liteblu : rgba(11,117,227,1);
 .jotform-form {
 	font-family:"lato-light";
 	position:relative;
-	float:right;
+  width: 65%;
 	padding:1em;
 	margin:1em 0em 4em 0em;
 	background-color:$base_blue;
 	@include clearfix;
 	@include rounded_borders($royal_blue, 3px, 3px, 3px, 3px, 1px);
-	.form-header-group {
+	.form-header-group pre{
 		display:none;
 	}
 	input, textarea {
@@ -81,20 +81,17 @@ $liteblu : rgba(11,117,227,1);
 	.form-label-left {
 		margin:0.25em 0em;
 	}
-	//ul class 
+	//ul class
 	.form-section {
 
 	}
 	//li class
 	.form-line {
-		display:block;
+		display: list-item;
 	}
 	//input divs
 	.form-input {
 		margin:0;
 		padding:0.5em 0;
-	}
-	#id_6 {
-		float:right;
 	}
 }
