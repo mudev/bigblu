@@ -1,9 +1,9 @@
 <div id="tnc" >
-	<h1 id="tnctitle">Terms &amp; Conditions of Equipment Hire</h1>
 	<a id="tncdl" title="Download PDF of Terms" href="resources/bba_terms.pdf">terms &amp; conditions pdf</a>
+  <h1 id="tnctitle">Terms &amp; Conditions of Equipment Hire</h1>
 </div>
 <div ng-controller="TermsCtrl">
-	<div class="accordion">
-  	<ul><li ng-repeat="def in defs"><a ng-click='toggleDefs()'><span>{{def.deftitle}}</span></a><p>{{def.content}}</p></li></ul>
+	<div angular-accordion>
+  	<ul><li pane ng-repeat="def in defs"><pane-header><span>{{def.deftitle}}</span></pane-header><pane-content>{{def.content}}</pane-content></li></ul>
 	</div>
 </div>

@@ -119,7 +119,7 @@ body {
       border-bottom: 1px solid $lgrey;
       #nav {
         @include horizontal-list-container;
-        @media screen and (max-width: 550px) {
+        @media screen and (max-width: 540px) {
           position: absolute;
           top: 0;
           right: 0;
@@ -217,20 +217,18 @@ body {
           letter-spacing: 0.05em;
           text-decoration: none;
           float: left;
-          width: 90%;
-          margin: 0.25em 1em 0em 0.35em;
-          padding: 0.25em 0.4em 0.25em 0.25em;
-          @include rounded_borders($darkblu, 6px, 6px, 6px, 6px, 1px);
+          margin: 0.25rem 1rem 0rem 0.35rem;
+          padding: 0.75rem 0.4rem 0.75rem 4.5rem;
+          background : url('../images/sys/mobile.png') no-repeat center left;
           @media screen and (max-width: 480px) {
-            font-size: 2.75em;
-            letter-spacing: 0.1em;
+            font-size: 1.75rem;
           }
           &:hover {
-            @include rounded_borders(#ffcc01, 6px, 6px, 6px, 6px, 1px);
-            background-color: $flat_base;
+            @include rounded_borders($darkrblu, 6px, 6px, 6px, 6px, 1px);
+            background-color: $darkrblu;
             color: #FF2A00;
             @extend %wiggle;
-            letter-spacing: 0.04em;
+            letter-spacing: 0.04rem;
           }
           #tbone {
             padding-right: 8%;
@@ -247,7 +245,7 @@ body {
         margin: 0.5em 0.5em 0 0.2em;
         width: 25%;
         @media screen and (max-width: 540px) {
-          width: 50%;
+          width: 25%;
           max-width: 100% !important;
           height: auto !important;
         }
@@ -269,7 +267,7 @@ body {
         display: block;
         height: 225px;
         margin-top: 1.3em;
-        @media screen and (max-width: 550px) {
+        @media screen and (max-width: 540px) {
           display: none;
         }
         .gmap_marker {
@@ -569,7 +567,7 @@ body {
         line-height: 1.75em;
         display: block;
         margin-top: 2em;
-        width: 30%;
+        width: 33%;
         float: left;
         @media screen and (max-width: 480px) {
           line-height: 0.85em;
@@ -577,6 +575,7 @@ body {
         }
         img {
           margin: 5% 0%;
+          max-width: 100% !important;
           @media screen and (max-width: 480px) {
             max-width: 100% !important;
             height: auto !important;
@@ -587,7 +586,7 @@ body {
           text-align: center;
           font-size: 1.2em;
           line-height: 1.05em;
-          @media screen and (max-width: 650px) {
+          @media screen and (max-width: 640px) {
             font-size: 0.85rem;
           }
           @media screen and (max-width: 550px) {
@@ -688,7 +687,10 @@ body {
       #systag {
         font-family: "lato-light";
         font-size: 1.6em;
-        margin-left: 5em;
+
+        @media screen and (max-width: 480px) {
+          margin-left: 0;
+        }
       }
       #bblist {
         width: 48%;
@@ -722,7 +724,7 @@ body {
           float: left;
           width: 100%;
           overflow: hidden;
-          height: 250px;
+          height: 100%;
           -moz-transition: width 0.2s ease-out;
           -webkit-transition: width 0.2s ease-out;
           -o-transition: width 0.2s ease-out;
@@ -822,6 +824,7 @@ body {
         @include rounded_borders($royal_blue, 6px, 6px, 6px, 6px, 2px);
         box-shadow: 2px 2px 2px $liteblu;
         overflow: hidden;
+        position:relative;
       }
       #bbslide {
         margin-bottom: 1.5em;
@@ -1022,7 +1025,6 @@ body {
     width:100%;
   }
   .angular-accordion-header {
-    background-color: #999;
     color: #ffffff;
     padding: 10px;
     margin: 0;
@@ -1037,6 +1039,47 @@ body {
     text-decoration: none;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
-  }
+}
+
+.angular-accordion-container {
+    height: 100%;
+    width: 100%;
+}
+
+.angular-accordion-pane {
+    padding: 2px;
+}
+
+.angularaccordionheaderselected {
+    background-color: #bbb;
+    color: #333;
+    font-weight: bold;
+}
+
+.angular-accordion-header:hover {
+    text-decoration: underline !important;
+}
+
+.angularaccordionheaderselected:hover {
+    text-decoration: underline !important;
+}
+
+.angular-accordion-pane-content {
+    padding: 5px;
+    overflow-y: auto;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.angulardisabledpane {
+    opacity: .2;
+}
 
 }

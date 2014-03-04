@@ -1,6 +1,13 @@
 'use strict';
 
-var app = angular.module('bbangApp', ['ngResource','ngRoute', 'ngAnimate','angular-carousel', 'ngSanitize']);
+var app = angular.module('bbangApp', [
+  'ngResource',
+  'ngRoute',
+  'ngAnimate',
+  'angular-carousel',
+  'angular-accordion',
+  'ngSanitize'
+]);
 app.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -54,8 +61,8 @@ app.config(function ($routeProvider) {
         var options = {};
         options.maximum = attrs.maximum || 9999;
         options.minimum = attrs.minimum || 1;
-        options.minFont = attrs.minFont || 1;
-        options.maxFont = attrs.maxFont || 9999;
+        options.minFont = attrs.minFont || 1.5;
+        options.maxFont = attrs.maxFont || 3;
         options.fontRatio = attrs.fontRatio || 35;
         options.lineRatio = attrs.lineRatio || 1.45;
         element.flowtype(options);
