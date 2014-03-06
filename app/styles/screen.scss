@@ -35,10 +35,10 @@
 $base_blue: rgba(0, 71, 204, 0.75);
 
 //0047CC
-$flat_base: rgba(0, 71, 204, 1);
+$flat_base: rgba(36, 44, 169, 1);
 
 //0047CC
-$royal_blue: rgba(7, 52, 227, 0.35);
+$royal_blue: rgba(7, 52, 227, 1);
 
 //0734E3
 $darkblu: rgba(0, 13, 217, 1);
@@ -119,11 +119,10 @@ body {
       border-bottom: 1px solid $lgrey;
       #nav {
         @include horizontal-list-container;
-        @media screen and (max-width: 540px) {
+        @media screen and (max-width: 580px) {
           position: absolute;
           top: 0;
           right: 0;
-          margin-top: 1em;
         }
         ul {
           list-style: none;
@@ -134,22 +133,22 @@ body {
           border-bottom: 1px solid $lgrey;
           padding-left: 8%;
           @include pretty-bullets("../images/sys/sharew.png", 1px, 4px);
-          @media screen and (max-width: 540px) {
+          @media screen and (max-width: 580px) {
             border-top: none;
             border-bottom: none;
-            margin-top: 0.25em;
+            margin-top: 0;
             @include pretty-bullets("../images/sys/sharew.png", 0px, 0px);
           }
           li {
             float: left;
             @include clearfix;
             width: 16%;
-            @media screen and (max-width: 700px) {
-                font-size: 0.75em;
+            @media screen and (max-width: 840px) {
+                font-size: 0.75rem;
                 display: block;
             }
-            @media screen and (max-width: 550px) {
-                font-size: 0.75em;
+            @media screen and (max-width: 580px) {
+                font-size: 0.75rem;
                 float: none;
                 overflow: visible;
             }
@@ -159,22 +158,20 @@ body {
               background-color: none;
               color: #CCC;
               text-decoration: none;
+              &:link {
+                color: $white;
+              }
               &:hover {
                   color: $royal_blue;
               }
               &:active {
-                  color: $flat_base;
-              }
-              &:link {
-                  color: $white;
-              }
+                  color: $flat_base;              }
               &:focus {
                   color: $white;
                   text-shadow: 1px 1px 0px $flat_base;
               }
             }
             &:hover {
-              background-color: $royal_blue;
               color: $dgrey;
               text-shadow: 2px 1px 0px #000000;
             }
@@ -183,7 +180,7 @@ body {
       }
       #hblock {
         @include clearfix;
-        padding: 1em 0.75em 0 0.5em;
+        padding: 1rem 0.25rem 0;
         margin-bottom: 0.5em;
         @media screen and (max-width: 800px) {
           float: left;
@@ -192,7 +189,7 @@ body {
           display: block;
           @include span-columns(7);
           @media screen and (max-width: 540px) {
-            @include span-columns(11);
+            @include span-columns(12);
           }
           p {
             margin-top: 0.5em;
@@ -201,14 +198,23 @@ body {
         h1 {
           letter-spacing: 0.075em;
           text-shadow: 1px 1px 0px $liteblu;
-          color: $darkblu;
+          color: $flat_base;
           font-family: "ranchersreg";
           font-size: 1.7em;
           margin: 0.7em 0 0 0.5em;
+          @media screen and (max-width: 400px) {
+            font-size: 1.2em;
+             margin: 0.7rem 0 0 0;
+          }
         }
         h3 {
           font-size: 1.25em;
           margin: 0.6em 0em 0em 1em;
+          @media screen and (max-width: 540px) {
+            display: inline;
+            font-size: 0.95em;
+            margin: 0.33rem 0 0 0;
+          }
         }
         #tel {
           font-family: "lato";
@@ -220,15 +226,18 @@ body {
           margin: 0.25rem 1rem 0rem 0.35rem;
           padding: 0.75rem 0.4rem 0.75rem 4.5rem;
           background : url('../images/sys/mobile.png') no-repeat center left;
-          @media screen and (max-width: 480px) {
-            font-size: 1.75rem;
+          @media screen and (max-width: 580px) {
+            font-size: 2.75rem;
+          }
+          @media screen and (max-width: 440px) {
+            font-size: 1.55rem;
           }
           &:hover {
-            @include rounded_borders($darkrblu, 6px, 6px, 6px, 6px, 1px);
+            @include rounded_borders($darkrblu, 6px, 6px, 6px, 6px, 0px);
             background-color: $darkrblu;
+            text-shadow: 1px 1px 1px $white;
             color: #FF2A00;
             @extend %wiggle;
-            letter-spacing: 0.04rem;
           }
           #tbone {
             padding-right: 8%;
@@ -245,7 +254,7 @@ body {
         margin: 0.5em 0.5em 0 0.2em;
         width: 25%;
         @media screen and (max-width: 540px) {
-          width: 25%;
+          width: 45%;
           max-width: 100% !important;
           height: auto !important;
         }
@@ -267,7 +276,7 @@ body {
         display: block;
         height: 225px;
         margin-top: 1.3em;
-        @media screen and (max-width: 540px) {
+        @media screen and (max-width: 550px) {
           display: none;
         }
         .gmap_marker {
@@ -622,6 +631,9 @@ body {
               li {
                   padding: 0em 1.5em;
                   position: relative;
+                  @media screen and (max-width: 550px) {
+                    padding: 0;
+                  }
                   a {
                       display: block;
                       border: 1px solid transparent;
@@ -991,26 +1003,36 @@ body {
     #footnav {
         margin-top: 1em;
         @include horizontal-list-container;
+        overflow: visible;
         a {
-            display: block;
-            color: $white;
-            text-decoration: none;
-            text-shadow: 2px 1px 1px $dgrey;
-            padding: 0.25em 1em;
-            @include rounded_borders($darkblu, 0px, 0px, 6px, 6px, 1px);
-            &:hover {
-                background-color: $literblu;
-                color: $dgrey;
-                text-shadow: 2px 1px 0px #000000;
-            }
+          display: block;
+          color: $white;
+          text-decoration: none;
+          text-shadow: 2px 1px 1px $dgrey;
+          padding: 0.25em 1em;
+          &:hover {
+            @include background-image(linear-gradient(top, rgba(125, 185, 232, 0.5) 0%, rgba(32, 124, 202, 0.5) 43%, $darkblu 100%));
+            color: $royal_blue;
+            text-shadow: 2px 1px 0px #000000;
+          }
+          @media screen and (max-width: 480px) {
+            border: none;
+            text-shadow: none;
+          }
         }
         li {
-            @include background-image(linear-gradient(top, $darkblu 0%, rgba(32, 124, 202, 0.5) 43%, rgba(125, 185, 232, 0.5) 100%));
-            float: left;
-            padding-left: 0;
+          @include background-image(linear-gradient(top, $darkblu 0%, rgba(32, 124, 202, 0.5) 43%, rgba(125, 185, 232, 0.5) 100%));
+          float: left;
+          padding-left: 0;
+          @media screen and (max-width: 480px) {
+            float: none;
+          }
         }
         &:first-child {
-            padding-left: 0.25em;
+          padding-left: 0.25em;
+          @media screen and (max-width: 480px) {
+            padding: 0;
+          }
         }
     }
   }
@@ -1039,47 +1061,49 @@ body {
     text-decoration: none;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
-}
+  }
 
-.angular-accordion-container {
-    height: 100%;
-    width: 100%;
-}
+  .angular-accordion-container {
+      height: 100%;
+      width: 100%;
+  }
 
-.angular-accordion-pane {
-    padding: 2px;
-}
+  .angular-accordion-pane {
+      padding: 2px;
+  }
 
-.angularaccordionheaderselected {
-    background-color: #bbb;
-    color: #333;
-    font-weight: bold;
-}
+  .angularaccordionheaderselected {
+      @include background-image(linear-gradient(top, $darkblu 0%, rgba(32, 124, 202, 0.5) 43%, rgba(125, 185, 232, 0.5) 100%));
+      color: $lgrey;
+      font-weight: bold;
+  }
 
-.angular-accordion-header:hover {
-    text-decoration: underline !important;
-}
+  .angular-accordion-header:hover {
 
-.angularaccordionheaderselected:hover {
-    text-decoration: underline !important;
-}
+  }
 
-.angular-accordion-pane-content {
-    padding: 5px;
-    overflow-y: auto;
-    border-left: 1px solid #bbb;
-    border-right: 1px solid #bbb;
-    border-bottom: 1px solid #bbb;
-    -webkit-border-bottom-left-radius: 5px;
-    -webkit-border-bottom-right-radius: 5px;
-    -moz-border-radius-bottomleft: 5px;
-    -moz-border-radius-bottomright: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
+  .angularaccordionheaderselected:hover {
 
-.angulardisabledpane {
-    opacity: .2;
-}
+  }
 
+  .angular-accordion-pane-content {
+      padding: 1% 5%;
+      overflow-y: auto;
+      border-left: 1px solid #bbb;
+      border-right: 1px solid #bbb;
+      border-bottom: 1px solid #bbb;
+      -webkit-border-bottom-left-radius: 5px;
+      -webkit-border-bottom-right-radius: 5px;
+      -moz-border-radius-bottomleft: 5px;
+      -moz-border-radius-bottomright: 5px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      @media screen and (max-width: 480px) {
+        font-size: 0.8rem;
+      }
+  }
+
+  .angulardisabledpane {
+      opacity: .2;
+  }
 }

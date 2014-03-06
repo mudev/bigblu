@@ -57,7 +57,7 @@ app.config(function ($routeProvider) {
 .directive('flowType', function($compile){
     return {
       restrict: 'A',
-      link: function(scope, elem, attrs){
+      link: function(scope, element, attrs){
         var options = {};
         options.maximum = attrs.maximum || 9999;
         options.minimum = attrs.minimum || 1;
