@@ -19,6 +19,7 @@
 .angular-accordion-container {
     height: 100%;
     width: 100%;
+    overflow: visible;
 }
 
 .angular-accordion-pane {

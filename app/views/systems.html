@@ -1,33 +1,31 @@
 <p id="sysplus">Don't forget - ALL our Turbosound systems include: Delivery,Setup and an Engineer.</p>
 <div class="centred" ng-controller="RigCtrl">
-	<section id="bblist">
-		<ul class="accordion" id="vertical">
-			<li class="slide-01" ng-repeat="rig in rigs">
-				<div>
-					<h2>{{rig.type}} System</h2>
-					<div class="spkrico">
-					</div>
-					<div>
-						<!-- <p>Pubs, Clubs &amp; Parties - this package does it with plenty spare ;)</p> -->
-						<h3>{{rig.size}} Turbosound System</h3>
-						<p>Covers 50-150 people</p>
-						<p class="pricer">Prices from &gt;&gt;&gt;&gt;</p>
-						<span>£{{rig.price}}</span>
-					</div>
-				</div>
-			</li>
-		</ul>
+  <section id="bblist">
+    <ul class="accordion" id="vertical">
+      <li class="slide-01" ng-repeat="rig in rigs">
+        <div>
+          <h2>{{rig.type}} System</h2>
+          <div>
+            <!-- <p>Pubs, Clubs &amp; Parties - this package does it with plenty spare ;)</p> -->
+            <h3>{{rig.size}} Turbosound System</h3>
+            <p>Covers 50-150 people</p>
+            <p class="pricer">Prices from &gt;&gt;&gt;&gt;</p>
+            <span>£{{rig.price}}</span>
+          </div>
+        </div>
+      </li>
+    </ul>
   </section>
   <section id="bblist">
-		<ul id="syslide">
-			<li class="inner-slideshow slide-animation" ng-repeat="pic in rigpic" ng-hide="!isCurrentSlideIndex($index)">
-				<!-- <div class="top">
-	            	<h4>DJ Kevin Griffiths on our system</h4>
-	            </div>  -->
-				<img ng-src="{{pic.src}}"/>
-				<h4>{{pic.desc}}</h4>
-			</li>
-		</ul>
+    <ul id="syslide">
+      <li class="inner-slideshow slide-animation" ng-repeat="pic in rigpic" ng-hide="!isCurrentSlideIndex($index)">
+        <!-- <div class="top">
+                <h4>DJ Kevin Griffiths on our system</h4>
+              </div>  -->
+        <img ng-src="{{pic.src}}"/>
+        <h4>{{pic.desc}}</h4>
+      </li>
+    </ul>
     <a class="arrow prev" ng-click="nextSlide()"></a>
     <a class="arrow next" ng-click="prevSlide()"></a>
     <nav class="gallerynav" >
@@ -39,7 +37,7 @@
             </ul>
         </div>
     </nav>
-	</section>
+  </section>
 </div>
 <p id="systag" >Not sure what you need? Call us now. We can make it work for you.</p>
 <div class="push"></div>

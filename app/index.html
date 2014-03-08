@@ -52,8 +52,8 @@
           <a id="rgo" href="">play</a>
       </div>
       <div class="rogues" >
-        <ul rn-carousel-control="true">
-          <li ng-repeat="client in clients"><a class="{{client.logo}}" ng-ref="{{client.url}}"><h4>{{client.name}}</h4></a></li>
+        <ul rn-carousel>
+          <li ng-repeat="client in clients"><a class="{{client.logo}}" href="{{client.url}}"><h4>{{client.name}}</h4></a></li>
         </ul>
       </div>
     </header>
@@ -79,12 +79,11 @@
   <!-- build:js scripts/modules.js -->
   <script src="bower_components/angular-resource/angular-resource.min.js"></script>
   <script src="bower_components/angular-animate/angular-animate.min.js"></script>
-  <script src="bower_components/angular-route/angular-route.min.js"></script>
-  <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
-  <script src="bower_components/angular-touch/angular-touch.min.js"></script>
-  <script src="bower_components/angular-carousel/dist/angular-carousel.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-carousel/dist/angular-carousel.js"></script>
   <script src="bower_components/angular-carousel/lib/angular-mobile.js"></script>
-
+  <script src="bower_components/angular-touch/angular-touch.min.js"></script>
   <script src="scripts/vendor/angular-accordion.js"></script>
   <script src="scripts/vendor/flowtype.js"></script>
   <script src="scripts/vendor/TweenMax.min.js"></script>
