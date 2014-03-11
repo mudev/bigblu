@@ -1,10 +1,10 @@
 <div id="contactinfo">
-	<h2>Get in Touch</h2>
-	<ul>
-		<li><a href="http://www.facebook.coom/bigblueaudio" class="socfb" title="Big Blue on Facebook"></a></li>
-		<li><a href="http://twitter.com/bigblueaudio" class="soctw" title="@BigBlueAudio"></a></li>
-		<li><a href="http://www.myspace.com/bbaudio" class="socmys" title="And on Myspace"></a></li>
-	</ul>
+  <h2>Get in Touch</h2>
+  <ul>
+    <li><a href="http://www.facebook.coom/bigblueaudio" class="socfb" title="Big Blue on Facebook"></a></li>
+    <li><a href="http://twitter.com/bigblueaudio" class="soctw" title="@BigBlueAudio"></a></li>
+    <li><a href="http://www.myspace.com/bbaudio" class="socmys" title="And on Myspace"></a></li>
+  </ul>
 </div>
 <div ng-controller="ContactCtrl">
   <form class="jotform-form" action="http://submit.jotformeu.com/submit/22683541517354/" method="post" name="form_22683541517354" id="22683541517354" accept-charset="utf-8" ng-submit="submitForm()" novalidate>
@@ -23,7 +23,7 @@
           Name<span class="form-required">*</span>
         </label>
         <div class="form-input">
-          <input type="text" class="form-textbox" id="input_3" name="q3_name" size="26" ng-model="form_22683541517354.name"/>
+          <input type="text" class="form-textbox" id="input_3" name="q3_name" size="26" ng-model="form_22683541517354.name" autofocus/>
         </div>
         <p ng-show="form_22683541517354.name.$invalid && !form_22683541517354.name.$pristine" class="help-block">You name is required.</p>
       </li>
@@ -49,7 +49,7 @@
           Message<span class="form-required">*</span>
         </label>
         <div class="form-input">
-          <textarea class="form-textarea" name="q6_message" cols="64" rows="10"></textarea>
+          <textarea class="form-textarea" name="q6_message"></textarea>
         </div>
       </li>
       <li class="form-line form-line-column">

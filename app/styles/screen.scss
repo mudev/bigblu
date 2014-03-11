@@ -71,7 +71,7 @@ $grid-padding: $gutter-width;
 // grid-padding equal to gutters
 /* Layout ------------------------------------------------------------------*/
 body {
-  background-image: url("../images/sys/illusion2blur.jpg");
+  background-image: url("../images/sys/use_your_illusion3.png");
   height: 100%;
   width: 100%;
   font-family: "lato";
@@ -237,9 +237,13 @@ body {
           @media screen and (max-width: 580px) {
             font-size: 2.75rem;
           }
-          @media screen and (max-width: 440px) {
-            font-size: 1.55rem;
-
+          @media screen and (max-width: 460px) {
+            font-size: 2.5rem;
+          }
+          @media screen and (max-width: 410px) {
+            font-size: 1.7rem;
+            letter-spacing: default;
+            margin: 0.25rem 0 0rem 0.35rem;
           }
           &:hover {
             @include rounded_borders($darkrblu, 6px, 6px, 6px, 6px, 0px);
@@ -349,6 +353,9 @@ body {
         height: 2.8em;
         overflow: hidden;
         @include rounded_borders($liteblu, 3px, 3px, 3px, 3px, 1px);
+        @media screen and (max-width: 320px) {
+          margin-bottom: 0.5rem;
+        }
         ul {
           list-style-type: none;
           width: 2000em;
@@ -563,11 +570,16 @@ body {
       }
     }
     #main {
+      display: inline;
       font-family: "lato";
       font-size: 1.05em;
       color: $white;
       margin-top: 1.75em;
       position: relative;
+      @media screen and (max-width: 4800px) {
+        margin-top: 0.25rem;
+        padding: 0 0.25rem;
+      }
       #col1 {
         display: block;
         left: 0;
@@ -623,7 +635,7 @@ body {
       }
       #manf {
           @include clearfix;
-          display: table;
+          display: inline-block;
           margin: 0 auto;
           p {
               font-size: 0.8em;
@@ -635,7 +647,7 @@ body {
           }
           ul {
               @include horizontal-list;
-              display: table;
+              display: inline-table;
               margin: 0 auto;
               padding: 0.5em 0em;
               li {
@@ -888,7 +900,6 @@ body {
       /*---------------------------------------------------------
       NAV
       ---------------------------------------------------------*/
-
       .gallerynav {
           text-align: center;
           display: block;
@@ -896,34 +907,28 @@ body {
           bottom: -4px;
           height: 48px;
       }
-
       .nonDraggableImage{
           -webkit-user-drag: none;
       }
-
       .gallerynav .wrapper {
           margin: 0 auto;
           width: 100%;
           padding: 1em 0 .8em;
       }
-
       .gallerynav ul {
           margin: 0;
           width: 100%;
       }
-
       .gallerynav .dot, .gallerynav .dot a {
           display: inline-block;
           zoom: 1;
       }
-
       .dots .dot {
           position: relative;
           margin: 0 8px;
           width: 12px;
           height: 12px;
       }
-
       .dots .dot a {
           position: absolute;
           top: 0.25rem;
@@ -979,6 +984,7 @@ body {
         font-family: "lato-light";
         font-size: 1rem;
         line-height: 1.25rem;
+        margin-top: 0.5rem;
         a {
           text-decoration: none;
           color: $liteblu;
@@ -1034,7 +1040,7 @@ body {
           }
         }
         li {
-          @include background-image(linear-gradient(top, $darkblu 0%, rgba(32, 124, 202, 0.5) 43%, rgba(125, 185, 232, 0.5) 100%));
+          @include background-image(linear-gradient(top, $darkblu 0%, rgba(32, 124, 202, 0.5) 43%, rgba(125, 185, 232, 0) 100%));
           float: left;
           padding-left: 0;
           @media screen and (max-width: 480px) {

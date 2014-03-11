@@ -28,6 +28,9 @@ $dgrey: rgba(42, 42, 42, 1);
   h2 {
     font-size:1.4em;
     margin:0.4em 0 0 2em;
+    @media screen and (max-width: 600px) {
+      margin: 0;
+    }
   }
   ul {
     @include horizontal-list(0.5em);
