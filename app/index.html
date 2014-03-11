@@ -46,12 +46,12 @@
         <a id="tel" href="callto:07775893130" target="_self">07775 893130</a>
         <!-- <a id="tel" href="callto:07775893130" target="_self"><img id="tbone" src="images/sys/mobile.png" alt="mobile logo">07775 893130</a> -->
       </div>
-      <div id="roguectl">
+      <!-- <div id="roguectl">
           <h2>Our Clients:</h2>
           <a id="rstop" href="">pause</a>
           <a id="rgo" href="">play</a>
-      </div>
-      <div class="rogues" >
+      </div> -->
+      <div class="rogues" tooltip="swipe me">
         <ul rn-carousel>
           <li ng-repeat="client in clients"><a class="{{client.logo}}" href="{{client.url}}"><h4>{{client.name}}</h4></a></li>
         </ul>
