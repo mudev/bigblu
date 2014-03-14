@@ -6,10 +6,12 @@
 @import "compass/reset";
 @import "compass/utilities/general/clearfix";
 @import "compass/css3/font-face";
+@import "compass/css3/images";
 @import "compass/layout/stretching";
 @import "compass/layout/sticky-footer";
 @import "compass/typography/lists/horizontal-list";
 @import "compass/typography/lists/bullets";
+@import "susy";
 @import "companimation";
 @import "companimation/preset/special/wiggle";
 
@@ -71,7 +73,7 @@ $grid-padding: $gutter-width;
 // grid-padding equal to gutters
 /* Layout ------------------------------------------------------------------*/
 body {
-  background-image: url("../images/sys/use_your_illusion3.png");
+  background-image: url("../images/sys/use_your_illusion2.jpg");
   height: 100%;
   width: 100%;
   font-family: "lato";
@@ -194,9 +196,9 @@ body {
         }
         section {
           display: block;
-          @include span-columns(7);
+          @include span(7);
           @media screen and (max-width: 540px) {
-            @include span-columns(12);
+            @include span(12);
           }
           p {
             margin-top: 0.5em;
@@ -257,7 +259,7 @@ body {
             margin: 0.25em 0 0 0;
             width: 10%;
             &:hover {
-              @extend %wiggle;
+              // @extend %wiggle;
             }
           }
         }
@@ -707,6 +709,7 @@ body {
       }
       #topcell {
           display: inline-block;
+          margin-top: 0.5rem;
           &+p {
 
             @media screen and (max-width: 480px) {
@@ -729,7 +732,7 @@ body {
         }
       }
       #sysplus {
-        margin: 0 0 4% 10%;
+        margin: 1% 0 4% 10%;
         font-size: 1.25em;
       }
       #systag {
