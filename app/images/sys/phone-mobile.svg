@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 13.0.0, SVG Export Plug-In  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
+	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
+]>
+<svg version="1.1"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" width="46px" height="78px" viewBox="0 0 46 78" enable-background="new 0 0 46 78" xml:space="preserve">
+<defs>
+</defs>
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="23.208" y1="77.4912" x2="23.208" y2="0.125">
+	<stop  offset="0" style="stop-color:#5B5B5B"/>
+	<stop  offset="7.724986e-004" style="stop-color:#646464"/>
+	<stop  offset="0.0044" style="stop-color:#888888"/>
+	<stop  offset="0.0086" style="stop-color:#A8A8A8"/>
+	<stop  offset="0.0131" style="stop-color:#C4C4C4"/>
+	<stop  offset="0.0183" style="stop-color:#DADADA"/>
+	<stop  offset="0.0243" style="stop-color:#EBEBEB"/>
+	<stop  offset="0.0317" style="stop-color:#F6F6F6"/>
+	<stop  offset="0.0421" style="stop-color:#FDFDFD"/>
+	<stop  offset="0.0711" style="stop-color:#FFFFFF"/>
+	<stop  offset="0.4975" style="stop-color:#FFFFFF"/>
+	<stop  offset="0.5685" style="stop-color:#4D4D4D"/>
+	<stop  offset="0.5701" style="stop-color:#4E4E4E"/>
+	<stop  offset="0.6759" style="stop-color:#8D8D8D"/>
+	<stop  offset="0.7725" style="stop-color:#BEBEBE"/>
+	<stop  offset="0.8566" style="stop-color:#E1E1E1"/>
+	<stop  offset="0.9252" style="stop-color:#F7F7F7"/>
+	<stop  offset="0.9695" style="stop-color:#FFFFFF"/>
+	<stop  offset="1" style="stop-color:#5F5F5F"/>
+</linearGradient>
+<path fill="url(#SVGID_1_)" stroke="#26209E" stroke-width="0.25" d="M46.292,69.051c0,4.661-3.675,8.44-8.208,8.44H8.333
+	c-4.533,0-8.208-3.779-8.208-8.44V8.565c0-4.661,3.674-8.44,8.208-8.44h29.751c4.533,0,8.208,3.779,8.208,8.44V69.051z"/>
+<rect x="6.629" y="5.479" fill="#FFFFFF" stroke="#26209E" stroke-width="0.25" width="33.042" height="47.893"/>
+<rect x="6.629" y="57.344" fill="#0A0A0A" stroke="#26209E" stroke-width="0.5" width="8.29" height="5.642"/>
+<rect x="19.021" y="57.301" fill="#0A0A0A" stroke="#26209E" stroke-width="0.5" width="8.289" height="5.526"/>
+<rect x="31.497" y="57.301" fill="#0A0A0A" stroke="#26209E" stroke-width="0.5" width="8.29" height="5.526"/>
+<rect x="31.497" y="66.324" fill="#0A0A0A" stroke="#26209E" stroke-width="0.5" width="8.29" height="5.526"/>
+<rect x="19.021" y="66.324" fill="#0A0A0A" stroke="#26209E" stroke-width="0.5" width="8.289" height="5.526"/>
+<rect x="6.629" y="66.324" fill="#0A0A0A" stroke="#26209E" stroke-width="0.5" width="8.29" height="5.526"/>
+</svg>

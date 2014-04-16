@@ -101,7 +101,7 @@ app.config(function ($routeProvider) {
       {name : "Central St Martins", url : "http://www.csm.arts.ac.uk/", logo : "cstmartin"},
       {name : "Red Bull", url : "http://www.redbull.co.uk/", logo : "redbull"},
       {name : "Redlight", url : "redlight.org", logo : "redlight"},
-      {name : "L-Vis 1990", url : "http://www.facebook.com/LVis1990", logo : "lvis"},
+      {name : "L-Vis 1990", url : "http://www.facebook.com/LVis1990", logo : "lvis"}
   ];
 
 });

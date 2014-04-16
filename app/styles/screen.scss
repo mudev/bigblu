@@ -11,16 +11,15 @@
 @import "compass/layout/sticky-footer";
 @import "compass/typography/lists/horizontal-list";
 @import "compass/typography/lists/bullets";
-@import "susy";
 @import "companimation";
 @import "companimation/preset/special/wiggle";
 
 // webfonts
-@include font-face("ranchersreg", font-files("../fonts/ranchers-regular-webfont.woff", "../fonts/ranchers-regular-webfont.ttf", "ranchers-regular-webfont.eot", "ranchers-regular-webfont.svg"));
+@include font-face("ranchersreg", font-files("ranchers-regular-webfont.woff", "ranchers-regular-webfont.ttf", "ranchers-regular-webfont.eot", "ranchers-regular-webfont.svg"));
 
-@include font-face("lato-light", font-files("../fonts/lato-light-webfont.woff", "../fonts/lato-light-webfont.ttf", "lato-light-webfont.eot", "lato-light-webfont.svg"));
+@include font-face("lato-light", font-files("lato-light-webfont.woff", "lato-light-webfont.ttf", "lato-light-webfont.eot", "lato-light-webfont.svg"));
 
-@include font-face("lato", font-files("../fonts/lato-regular-webfont.woff", "../fonts/lato-regular-webfont.ttf", "lato-regular-webfont.eot", "lato-regular-webfont.svg"));
+@include font-face("lato", font-files("lato-regular-webfont.woff", "lato-regular-webfont.ttf", "lato-regular-webfont.eot", "lato-regular-webfont.svg"));
 
 // rounded corners mixin
 
@@ -34,30 +33,18 @@
 }
 
 // Colours
-$base_blue: rgba(0, 71, 204, 0.75);
-
-//0047CC
-$flat_base: rgba(36, 44, 169, 1);
-
-//0047CC
-$royal_blue: rgba(7, 52, 227, 1);
-
-//0734E3
-$darkblu: rgba(0, 13, 217, 1);
-
-//000DD9
-$liteblu: rgba(129, 205, 251, 1);
-
-//#81CDFB
+$base_blue: rgba(0, 71, 204, 0.75);//0047CC
+$flat_base: rgba(36, 44, 169, 1);//0047CC
+$royal_blue: rgba(7, 52, 227, 1);//0734E3
+$darkblu: rgba(0, 13, 217, 1);//000DD9
+$liteblu: rgba(129, 205, 251, 1);//#81CDFB
 $literblu: lighten($flat_base, 0.65);
+
 $darkrblu: darken($royal_blue, 0.75);
 $white: rgba(255, 255, 255, 1);
-$lgrey: rgba(204, 204, 204, 1);
+$lgrey: rgba(204, 204, 204, 1);//CCC
+$dgrey: rgba(142, 142, 142, 1);//8E8E
 
-//CCC
-$dgrey: rgba(142, 142, 142, 1);
-
-//8E8E
 // grid
 $total-columns: 12;
 
@@ -108,7 +95,7 @@ body {
     }
   }
   .container {
-    @include container;
+    @include container(60em);
     min-height: 100%;
     height: 100%;
     margin: 0 auto -2em;
@@ -134,15 +121,15 @@ body {
           @include clearfix;
           display: block;
           margin-top: 1em;
-          border-top: 1px solid $lgrey;
+          border-top: 1px solid $white;
           border-bottom: 1px solid $lgrey;
           padding-left: 8%;
-          @include pretty-bullets("../images/sys/sharew.png", 1px, 4px);
+          @include pretty-bullets("sys/sharew.png", 1px, 4px);
           @media screen and (max-width: 580px) {
             border-top: none;
             border-bottom: none;
             margin-top: 0;
-            @include pretty-bullets("../images/sys/sharew.png", 0px, 0px);
+            @include pretty-bullets("sys/sharew.png", 0px, 0px);
           }
           li {
             float: left;
@@ -196,9 +183,9 @@ body {
         }
         section {
           display: block;
-          @include span(7);
+          @include span(7 of 12);
           @media screen and (max-width: 540px) {
-            @include span(12);
+            @include span(12 of 12);
           }
           p {
             margin-top: 0.5em;
@@ -220,9 +207,8 @@ body {
           font-size: 1.25em;
           margin: 0.6em 0em 0em 1em;
           @media screen and (max-width: 540px) {
-            display: inline;
             font-size: 0.95em;
-            margin: 0.33rem 0 0 0;
+            margin: 0.33rem 0 0 1rem;
           }
         }
         #tel {
@@ -278,7 +264,7 @@ body {
         font-family: "lato";
         font-size: 0.8em;
         line-height: 1.25em;
-        margin: 0.6em 0em 0.5em 1.6em;
+        margin: 0.6em 0em 0.5em 1.2em;
         float: left;
       }
       h2 {
@@ -642,6 +628,7 @@ body {
           p {
               font-size: 0.8em;
               width: 100%;
+              padding: 0.5rem 0;
           }
           .bottom {
               display: table;
@@ -651,21 +638,72 @@ body {
               @include horizontal-list;
               display: inline-table;
               margin: 0 auto;
-              padding: 0.5em 0em;
+              padding: 0.4rem 0rem 1.4rem;
               li {
                   padding: 0em 1.5em;
                   position: relative;
+                  perspective: 1000px;
                   @media screen and (max-width: 550px) {
                     padding: 0;
                   }
                   a {
                       display: block;
                       border: 1px solid transparent;
+                      /*disabling the translucent black bg on the main image*/
+                      background-size: 0, cover;
+                      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+                      /*3d space for children*/
+                      transform-style: preserve-3d;
+                      transition: all 0.5s;
                       .top {
                           border: 1px solid $white;
                       }
                       &:hover {
-                          border: 1px solid $base_blue;
+                        border: 1px solid $base_blue;
+                        transform: rotateX(80deg); transform-origin: bottom;
+                        a:before {
+                          opacity: 1;
+                          /*blurred effect using box shadow as filter: blur is not supported in all browsers*/
+                          box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.5);
+                          /*pushing the shadow down and scaling it down to size*/
+                          transform: rotateX(0) translateZ(-60px) scale(0.85);
+                        }
+                      }
+                      &:after {
+                        /*36px high element positioned at the bottom of the image*/
+                        content: ''; position: absolute; left: 0; bottom: 0;
+                        width: 100%; height: 1.5rem;
+                        /*inherit the main BG*/
+                        background-size: cover, cover;
+                        /*draw the BG bottom up*/
+                        background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4));
+                        background-position: bottom;
+                        /*rotate the surface 90deg on the bottom axis*/
+                        transform: rotateX(90deg); transform-origin: bottom;
+                      }
+                      &:before {
+                        content: ''; position: absolute; top: 0; left: 0;
+                        width: 100%; height: 100%;
+                        background: rgba(0, 0, 0, 0.5);
+                        box-shadow: 0 0 100px 50px rgba(0, 0, 0, 0.5);
+                        transition: all 0.5s;
+                        /*by default the shadow will be almost flat, very transparent, scaled down with a large blur*/
+                        opacity: 0.15;
+                        transform: rotateX(95deg) translateZ(-80px) scale(0.75);
+                        transform-origin: bottom;
+                      }
+                      span {
+                        color: white;
+                        text-transform: uppercase;
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        width: 100%;
+                        font-size: 0.7rem;
+                        text-align: center;
+                        /*the rotation is a bit less than the bottom surface to avoid flickering*/
+                        transform: rotateX(-89.99deg); transform-origin: top;
+                        z-index: 1;
                       }
                   }
               }
@@ -830,7 +868,7 @@ body {
         box-shadow: 2px 2px 2px $liteblu;
         li {
           float: none;
-          height: 20%;
+          height: 18%;
           width: 100%;
           -moz-transition: height 0.2s ease-out;
           -webkit-transition: height 0.2s ease-out;
@@ -848,15 +886,16 @@ body {
           &:hover {
             height: 65%;
             width: 100%;
-            @include rounded_borders($white, 6px, 6px, 6px, 6px, 1px);
             li {
-              height: 20%;
+              height: 18%;
               width: 100%;
             }
           }
           p {
+            display: block;
             font-family: "lato-light";
             padding: 0;
+            width: 100%;
           }
         }
       }
@@ -1001,14 +1040,14 @@ body {
           width: 25%;
           height: auto !important;
           float: left;
-          margin: 1.5em 1.5em 5em;
+          margin: 1.5em 1.5em 1em;
           box-shadow: 2px 2px 2px $liteblu;
           & + p {
               margin-top: 1rem;
           }
         }
         p {
-          padding: 0;
+          padding: 0 0.5rem;
           float: none;
           @media screen and (max-width: 800px) {
               font-size: 0.8rem;

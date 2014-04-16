@@ -1,5 +1,5 @@
 @import "compass/css3/font-face";
-@include font-face("lato-light", font-files("../fonts/lato-light-webfont.woff", "../fonts/lato-light-webfont.ttf","lato-light-webfont.eot","lato-light-webfont.svg"));
+@include font-face("lato-light", font-files("lato-light-webfont.woff", "lato-light-webfont.ttf","lato-light-webfont.eot","lato-light-webfont.svg"));
 $liteblu : rgba(11,117,227,1);
 #tnc {
 
