@@ -16,13 +16,10 @@
 
 // webfonts
 @include font-face("ranchersreg", font-files("ranchers-regular-webfont.woff", "ranchers-regular-webfont.ttf", "ranchers-regular-webfont.eot", "ranchers-regular-webfont.svg"));
-
 @include font-face("lato-light", font-files("lato-light-webfont.woff", "lato-light-webfont.ttf", "lato-light-webfont.eot", "lato-light-webfont.svg"));
-
 @include font-face("lato", font-files("lato-regular-webfont.woff", "lato-regular-webfont.ttf", "lato-regular-webfont.eot", "lato-regular-webfont.svg"));
 
 // rounded corners mixin
-
 @mixin rounded_borders($color, $ca, $cb, $cc, $cd, $width) {
     -moz-border-radius: $ca $cb $cc $cd;
     -webkit-border-radius: $ca $cb $cc $cd;
@@ -30,6 +27,17 @@
     -o-border-radius: $ca $cb $cc $cd;
     border-radius: $ca $cb $cc $cd;
     border: $width $color solid;
+}
+@mixin def_rounded($color, $ca, $cb, $cc, $cd, $t, $r, $b, $l) {
+    -moz-border-radius: $ca $cb $cc $cd;
+    -webkit-border-radius: $ca $cb $cc $cd;
+    -khtml-border-radius: $ca $cb $cc $cd;
+    -o-border-radius: $ca $cb $cc $cd;
+    border-radius: $ca $cb $cc $cd;
+    border-top: $t $color solid;
+    border-right: $r $color solid;
+    border-bottom: $b $color solid;
+    border-left: $l $color solid;
 }
 
 // Colours
@@ -39,7 +47,6 @@ $royal_blue: rgba(7, 52, 227, 1);//0734E3
 $darkblu: rgba(0, 13, 217, 1);//000DD9
 $liteblu: rgba(129, 205, 251, 1);//#81CDFB
 $literblu: lighten($flat_base, 0.65);
-
 $darkrblu: darken($royal_blue, 0.75);
 $white: rgba(255, 255, 255, 1);
 $lgrey: rgba(204, 204, 204, 1);//CCC
@@ -47,13 +54,10 @@ $dgrey: rgba(142, 142, 142, 1);//8E8E
 
 // grid
 $total-columns: 12;
-
 // a 12-column grid
 $column-width: 4em;
-
 // each column is 4em wide
 $gutter-width: 1em;
-
 // 1em gutters between columns
 $grid-padding: $gutter-width;
 
@@ -106,1001 +110,1000 @@ body {
       margin-top: 0;
       padding: 0 0.25rem;
     }
-    header {
+  }
+  #nav {
+    @include horizontal-list-container;
+    @media screen and (max-width: 580px) {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    ul {
+      list-style: none;
       @include clearfix;
+      display: block;
+      margin-top: 1em;
+      border-top: 1px solid $white;
       border-bottom: 1px solid $lgrey;
-      #nav {
-        @include horizontal-list-container;
-        @media screen and (max-width: 580px) {
-          position: absolute;
-          top: 0;
-          right: 0;
-        }
-        ul {
-          list-style: none;
-          @include clearfix;
-          display: block;
-          margin-top: 1em;
-          border-top: 1px solid $white;
-          border-bottom: 1px solid $lgrey;
-          padding-left: 8%;
-          @include pretty-bullets("sys/sharew.png", 1px, 4px);
-          @media screen and (max-width: 580px) {
-            border-top: none;
-            border-bottom: none;
-            margin-top: 0;
-            @include pretty-bullets("sys/sharew.png", 0px, 0px);
-          }
-          li {
-            float: left;
-            @include clearfix;
-            width: 16%;
-            @media screen and (max-width: 840px) {
-                font-size: 0.75rem;
-                display: block;
-            }
-            @media screen and (max-width: 580px) {
-                font-size: 0.75rem;
-                float: none;
-                overflow: visible;
-            }
-            a {
-              display: block;
-              padding: 0.5em 0 0.5em 1.25em;
-              background-color: none;
-              color: #CCC;
-              text-decoration: none;
-              &:link {
-                color: $white;
-              }
-              &:visited {
-                color: $base_blue;
-              }
-              &:focus {
-                  color: $white;
-                  text-shadow: 1px 1px 0px $flat_base;
-              }
-              &:hover {
-                  color: $royal_blue;
-              }
-              &:active {
-                  color: $flat_base;              }
-
-            }
-            &:hover {
-              color: $dgrey;
-              text-shadow: 2px 1px 0px #000000;
-            }
-          }
-        }
+      padding-left: 8%;
+      @include pretty-bullets("sys/sharew.png", 1px, 4px);
+      @media screen and (max-width: 580px) {
+        border-top: none;
+        border-bottom: none;
+        margin-top: 0;
+        @include pretty-bullets("sys/sharew.png", 0px, 0px);
       }
-      #hblock {
+      li {
+        float: left;
         @include clearfix;
-        padding: 1rem 0.25rem 0;
-        margin-bottom: 0.5em;
-        @media screen and (max-width: 800px) {
-          float: left;
+        width: 16%;
+        @media screen and (max-width: 840px) {
+            font-size: 0.75rem;
+            display: block;
         }
-        section {
+        @media screen and (max-width: 580px) {
+            font-size: 0.75rem;
+            float: none;
+            overflow: visible;
+        }
+        a {
           display: block;
-          @include span(7 of 12);
-          @media screen and (max-width: 540px) {
-            @include span(12 of 12);
-          }
-          p {
-            margin-top: 0.5em;
-          }
-        }
-        h1 {
-          letter-spacing: 0.075em;
-          text-shadow: 1px 1px 1px $liteblu;
-          color: $flat_base;
-          font-family: "ranchersreg";
-          font-size: 1.7em;
-          margin: 0.7em 0 0 0.5em;
-          @media screen and (max-width: 400px) {
-            font-size: 1.2em;
-             margin: 0.7rem 0 0 0;
-          }
-        }
-        h3 {
-          font-size: 1.25em;
-          margin: 0.6em 0em 0em 1em;
-          @media screen and (max-width: 540px) {
-            font-size: 0.95em;
-            margin: 0.33rem 0 0 1rem;
-          }
-        }
-        #tel {
-          font-family: "lato";
-          color: $darkblu;
-          text-shadow: 1px 1px 1px #FF2A00;
-          font-size: 3.7em;
-          letter-spacing: 0.05em;
+          padding: 0.5em 0 0.5em 1.25em;
+          background-color: none;
+          color: #CCC;
           text-decoration: none;
-          float: left;
-          margin: 0.25rem 1rem 0rem 0.35rem;
-          padding: 0.75rem 0.4rem 0.75rem 4.5rem;
-          background : url('../images/sys/face-smile.svg') no-repeat 1% 51%;
-          @media screen and (max-width: 580px) {
-            font-size: 2.75rem;
+          &:link {
+            color: $white;
           }
-          @media screen and (max-width: 460px) {
-            font-size: 2.5rem;
+          &:visited {
+            color: $base_blue;
           }
-          @media screen and (max-width: 410px) {
-            font-size: 1.7rem;
-            letter-spacing: default;
-            margin: 0.25rem 0 0rem 0.35rem;
-          }
-          &:hover {
-            @include rounded_borders($darkrblu, 6px, 6px, 6px, 6px, 0px);
-            background : url('../images/sys/face-smile-big.svg') no-repeat center left;
-            text-shadow: 1px 1px 1px $darkrblu;
-            color: #FF1A00;
-            @extend %wiggle;
-          }
-          #tbone {
-            padding-right: 8%;
-            margin: 0.25em 0 0 0;
-            width: 10%;
-            &:hover {
-              // @extend %wiggle;
-            }
-          }
-        }
-      }
-      img {
-        float: left;
-        margin: 0.5em 0.5em 0 0.2em;
-        width: 25%;
-        @media screen and (max-width: 540px) {
-          width: 45%;
-          max-width: 100% !important;
-          height: auto !important;
-        }
-      }
-      p {
-        font-family: "lato";
-        font-size: 0.8em;
-        line-height: 1.25em;
-        margin: 0.6em 0em 0.5em 1.2em;
-        float: left;
-      }
-      h2 {
-        color: $white;
-        width: 6em;
-        float: left;
-      }
-      .google-map {
-        @include rounded_borders($royal_blue, 1px, 1px, 1px, 1px, 1px);
-        display: block;
-        height: 225px;
-        margin-top: 1.3em;
-        @media screen and (max-width: 550px) {
-          display: none;
-        }
-        .gmap_marker {
-          font-size: 0.65em;
-          h3 {
-              font-size: 1.1em;
-          }
-          p {
-              float: left;
-          }
-          img {
-              width: 30px;
-              height: 20px;
-          }
-        }
-      }
-      #roguectl {
-        position: relative;
-        display: block;
-        float: left;
-        margin-bottom: 0.5rem;
-        #rstop {
-          background: url(../images/sys/rstop.png) 0px 0px no-repeat;
-          display: block;
-          width: 32px;
-          height: 16px;
-          text-indent: -999px;
-          float: left;
-          margin-right: 0.5em;
-          &:hover {
-              background: url(../images/sys/rstop.png) 1px 1px no-repeat;
-              box-shadow: 1px 1px 2px rgba(0, 177, 255, 1);
-          }
-          &:active {
-              background: url(../images/sys/rstop_down.png) 1px 1px no-repeat;
-              box-shadow: 1px 1px 2px rgba(0, 177, 255, 1);
-          }
-        }
-        #rgo {
-          background: url(../images/sys/rgo.png) 0px 0px no-repeat;
-          display: block;
-          width: 32px;
-          height: 16px;
-          text-indent: -999px;
-          float: right;
-          &:hover {
-            background: url(../images/sys/rgo.png) 1px 1px no-repeat;
-            box-shadow: 1px 1px 2px rgba(0, 177, 255, 1);
-          }
-          &:active {
-            background: url(../images/sys/rgo_down.png) 1px 1px no-repeat;
-            box-shadow: 1px 1px 2px rgba(0, 177, 255, 1);
-          }
-        }
-      }
-      .rogues {
-        position: relative;
-        margin-left: 0.5em;
-        margin-bottom: 1em;
-        width: 98%;
-        height: 2.8em;
-        overflow: hidden;
-        @include rounded_borders($liteblu, 3px, 3px, 3px, 3px, 1px);
-        @media screen and (max-width: 320px) {
-          margin-bottom: 0.5rem;
-        }
-        ul {
-          list-style-type: none;
-          width: 2000em;
-          position: absolute;
-          li {
-            float: left;
-            width: 7.5em;
-            @include background-image(linear-gradient(top, $darkblu 0%, rgba(32, 124, 202, 0.5) 43%, rgba(125, 185, 232, 0.5) 100%));
-            h4 {
-              margin-left: 4.25em;
-              padding-top: 0.45em;
-              font-size: 0.8em;
-            }
-            a {
-              display: block;
-              height: 45px;
-              width: 45px;
+          &:focus {
               color: $white;
-              text-decoration: none;
-              &:hover {
-                  background-color: $base_blue;
-              }
-            }
-            .omid {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) 0px 0px no-repeat;
-            }
-            .aweatherall {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -45px 0px no-repeat;
-            }
-            .bellatrix {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) 0px -45px no-repeat;
-            }
-            .buttrich {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -45px -45px no-repeat;
-            }
-            .circ {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -90px 0px no-repeat;
-            }
-            .cdale {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -90px -45px no-repeat;
-            }
-            .cstmartin {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -225px -180px no-repeat;
-            }
-            .dtpm {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -45px -90px no-repeat;
-            }
-            .eddierichards {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -90px -90px no-repeat;
-            }
-            .gmac {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -135px 0px no-repeat;
-            }
-            .jazzyb {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -135px -45px no-repeat;
-            }
-            .joeynegro {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -135px -90px no-repeat;
-            }
-            .justinrobertson {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) 0px -135px no-repeat;
-            }
-            .jwinkonra {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -45px -135px no-repeat;
-            }
-            .lvis {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -90px -135px no-repeat;
-            }
-            .mathewjonson {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -135px -135px no-repeat;
-            }
-            .mothersole {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -180px 0px no-repeat;
-            }
-            .mrc {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -180px -45px no-repeat;
-            }
-            .nathan08 {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -180px -95px no-repeat;
-            }
-            .nholloway {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -180px -135px no-repeat;
-            }
-            .norman {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) 0px -225px no-repeat;
-            }
-            .owensoriginal {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) 0px -180px no-repeat;
-            }
-            .rampling {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) 0px -90px no-repeat;
-            }
-            .raymundo {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -45px -180px no-repeat;
-            }
-            .redbull {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -90px -180px no-repeat;
-            }
-            .redlight {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -135px -180px no-repeat;
-            }
-            .schlomo {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -180px -180px no-repeat;
-            }
-            .sbug {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -225px 0px no-repeat;
-            }
-            .superfreq {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -225px -45px no-repeat;
-            }
-            .terryf {
-                display: block;
-                width: 45px;
-                height: 45px;
-                background: url(../images/face/face.png) -225px -90px no-repeat;
-            }
-            .wiggleduo {
-                display: block;
-                background: url(../images/face/face.png) -225px -135px no-repeat;
-                width: 45px;
-                height: 45px;
-            }
+              text-shadow: 1px 1px 0px $flat_base;
           }
+          &:hover {
+              color: $royal_blue;
+          }
+          &:active {
+              color: $flat_base;              }
+
+        }
+        &:hover {
+          color: $dgrey;
+          text-shadow: 2px 1px 0px #000000;
         }
       }
     }
-    #main {
-      display: inline;
-      font-family: "lato";
-      font-size: 1.05em;
-      color: $white;
-      margin-top: 1.75em;
-      position: relative;
-      @media screen and (max-width: 4800px) {
-        margin-top: 0.25rem;
-        padding: 0 0.25rem;
-      }
-      #col1 {
-        display: block;
-        left: 0;
-        top: 0;
-        margin-right: 1.2rem;
-        height: 100%;
-        max-height: 100% !important;
-        width: 30%;
+  }
+  #hblock {
+      @include clearfix;
+      padding: 1rem 0.25rem 0;
+      margin-bottom: 0.5em;
+      @media screen and (max-width: 800px) {
         float: left;
-      }
-      #col2 {
-        @include clearfix;
-        overflow: visible;
-        font-family: "lato-light";
-        line-height: 1.75em;
-        display: block;
-        margin-top: 2em;
-        width: 33%;
-        float: left;
-        @media screen and (max-width: 480px) {
-          line-height: 0.85em;
-          margin-top: 0;
-        }
-        img {
-          margin: 5% 0%;
-          max-width: 100% !important;
-          @media screen and (max-width: 480px) {
-            max-width: 100% !important;
-            height: auto !important;
-            margin: 0;
-          }
-        }
-        p {
-          text-align: center;
-          font-size: 1.2em;
-          line-height: 1.05em;
-          @media screen and (max-width: 640px) {
-            font-size: 0.85rem;
-          }
-          @media screen and (max-width: 550px) {
-            font-size: 0.65em;
-          }
-        }
-      }
-      #col3 {
-        display: block;
-        position: relative;
-        height: 100%;
-        max-height: 100% !important;
-        width: 30%;
-        margin: 0;
-        float: right;
-      }
-      #manf {
-          @include clearfix;
-          display: inline-block;
-          margin: 0 auto;
-          p {
-              font-size: 0.8em;
-              width: 100%;
-              padding: 0.5rem 0;
-          }
-          .bottom {
-              display: table;
-              margin: 0 auto;
-          }
-          ul {
-              @include horizontal-list;
-              display: inline-table;
-              margin: 0 auto;
-              padding: 0.4rem 0rem 1.4rem;
-              li {
-                  padding: 0em 1.5em;
-                  position: relative;
-                  perspective: 1000px;
-                  @media screen and (max-width: 550px) {
-                    padding: 0;
-                  }
-                  a {
-                      display: block;
-                      border: 1px solid transparent;
-                      /*disabling the translucent black bg on the main image*/
-                      background-size: 0, cover;
-                      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
-                      /*3d space for children*/
-                      transform-style: preserve-3d;
-                      transition: all 0.5s;
-                      .top {
-                          border: 1px solid $white;
-                      }
-                      &:hover {
-                        border: 1px solid $base_blue;
-                        transform: rotateX(80deg); transform-origin: bottom;
-                        a:before {
-                          opacity: 1;
-                          /*blurred effect using box shadow as filter: blur is not supported in all browsers*/
-                          box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.5);
-                          /*pushing the shadow down and scaling it down to size*/
-                          transform: rotateX(0) translateZ(-60px) scale(0.85);
-                        }
-                      }
-                      &:after {
-                        /*36px high element positioned at the bottom of the image*/
-                        content: ''; position: absolute; left: 0; bottom: 0;
-                        width: 100%; height: 1.5rem;
-                        /*inherit the main BG*/
-                        background-size: cover, cover;
-                        /*draw the BG bottom up*/
-                        background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4));
-                        background-position: bottom;
-                        /*rotate the surface 90deg on the bottom axis*/
-                        transform: rotateX(90deg); transform-origin: bottom;
-                      }
-                      &:before {
-                        content: ''; position: absolute; top: 0; left: 0;
-                        width: 100%; height: 100%;
-                        background: rgba(0, 0, 0, 0.5);
-                        box-shadow: 0 0 100px 50px rgba(0, 0, 0, 0.5);
-                        transition: all 0.5s;
-                        /*by default the shadow will be almost flat, very transparent, scaled down with a large blur*/
-                        opacity: 0.15;
-                        transform: rotateX(95deg) translateZ(-80px) scale(0.75);
-                        transform-origin: bottom;
-                      }
-                      span {
-                        color: white;
-                        text-transform: uppercase;
-                        position: absolute;
-                        top: 100%;
-                        left: 0;
-                        width: 100%;
-                        font-size: 0.7rem;
-                        text-align: center;
-                        /*the rotation is a bit less than the bottom surface to avoid flickering*/
-                        transform: rotateX(-89.99deg); transform-origin: top;
-                        z-index: 1;
-                      }
-                  }
-              }
-          }
-          .bss {
-              background: url(../images/thumbs/sprite.png) 0px -26px no-repeat;
-              display: block;
-              width: 74px;
-              height: 73px;
-          }
-          .qsc {
-              background: url(../images/thumbs/sprite.png) -77px 0px no-repeat;
-              display: block;
-              width: 74px;
-              height: 16px;
-          }
-          .shure {
-              background: url(../images/thumbs/sprite.png) -77px -18px no-repeat;
-              display: block;
-              width: 74px;
-              height: 73px;
-          }
-          .soundweb {
-              background: url(../images/thumbs/sprite.png) -153px 0px no-repeat;
-              display: block;
-              width: 74px;
-              height: 73px;
-          }
-          .vdam {
-              background: url(../images/thumbs/sprite.png) -153px -75px no-repeat;
-              display: block;
-              width: 74px;
-              height: 24px;
-          }
-          .xta {
-              background: url(../images/thumbs/sprite.png) 0px 0px no-repeat;
-              display: block;
-              width: 75px;
-              height: 24px;
-          }
-      }
-      #topcell {
-          display: inline-block;
-          margin-top: 0.5rem;
-          &+p {
-
-            @media screen and (max-width: 480px) {
-              font-size: 1rem;
-            }
-            @media screen and (max-width: 400px) {
-              font-size: 0.85rem;
-              margin-top: 1rem;
-            }
-          }
       }
       section {
-        display: inline;
-        float: left;
-        width: 46.5%;
-        margin: 0;
-        @include clearfix;
-        @media screen and (max-width: 640px) {
-          float: none;
-        }
-      }
-      #sysplus {
-        margin: 1% 0 4% 10%;
-        font-size: 1.25em;
-      }
-      #systag {
-        font-family: "lato-light";
-        font-size: 1.6em;
-
-        @media screen and (max-width: 480px) {
-          margin-left: 0;
-        }
-      }
-      #bblist {
-        width: 48%;
-        margin: 0 1%;
-      }
-      .accordion {
-        overflow: hidden;
-        list-style: none;
-        margin-bottom: 1em;
-        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
-        @include rounded_borders($liteblu, 6px, 6px, 6px, 6px, 1px);
-        li {
-          float: left;
-          width: 100%;
-          overflow: hidden;
-          height: 100%;
-          -moz-transition: width 0.2s ease-out;
-          -webkit-transition: width 0.2s ease-out;
-          -o-transition: width 0.2s ease-out;
-          transition: width 0.2s ease-out;
-          -moz-transition-delay: 0.15s;
-          -webkit-transition-delay: 0.15s;
-          -o-transition-delay: 0.15s;
-          transition-delay: 0.15s;
-        }
-        div {
-          padding: 0em 0.75em 1em;
-          @include clearfix;
-          p {
-            padding: 0 0.5em 1em;
-            line-height: 1.2em;
-            font-size: 1em;
-          }
-          span {
-            bottom: 1.8em;
-            float: right;
-            font-size: 1.25em;
-            padding: 0.25em 2em;
-            //margin-top:1.5em;
-            color: $base_blue;
-            text-shadow: 1px 1px 1px $darkrblu;
-            @include rounded_borders($darkblu, 6px, 6px, 6px, 6px, 2px);
-            background-color: $darkrblu;
-            &:hover {
-              font-family: "lato";
-              font-size: 1.5em;
-              padding: 0.15em 1.5em;
-              @include rounded_borders(#ff2a00, 6px, 6px, 6px, 6px, 2px);
-              background-color: $white;
-              letter-spacing: 0.2em;
-              color: #FF2A00;
-            }
-          }
-          .pre {
-            font-size: 0.95em;
-          }
-          .pricer {
-            margin-top: 8%;
-            font-size: 1.8em;
-          }
-        }
-        h2 {
-          display: inline-block;
-          font-size: 2.0em;
-          // margin-left:0.5em;
-          padding-bottom: 0.5em;
-          word-spacing: 0.05em;
-          letter-spacing: 0.3em;
-          @media screen and (max-width: 400px) {
-              font-size: 0.8rem;
-          }
-        }
-        h3 {
-          color: lighten($liteblu, 24);
-          font-size: 1.65em;
-          margin: 0.25em 0em 0em;
-          text-shadow: 1px 1px 1px $literblu;
-        }
-        dd {
-          display: inline-block;
-        }
-      }
-      #vertical {
-        height: 303px;
-        @include background-image(linear-gradient(top, $darkblu 0%, rgba(32, 124, 202, 0.5) 43%, rgba(125, 185, 232, 0.5) 100%));
-        box-shadow: 2px 2px 2px $liteblu;
-        li {
-          float: none;
-          height: 18%;
-          width: 100%;
-          -moz-transition: height 0.2s ease-out;
-          -webkit-transition: height 0.2s ease-out;
-          -o-transition: height 0.2s ease-out;
-          transition: height 0.2s ease-out;
-          @media screen and (max-width: 400px) {
-              font-size: 1.05rem;
-          }
-          &:li:last-of-type {
-            -moz-border-radius: 0 0 10px 10px;
-            -webkit-border-radius: 0 0 10px 10px;
-            -o-border-radius: 0 0 10px 10px;
-            border-radius: 0 0 10px 10px;
-          }
-          &:hover {
-            height: 65%;
-            width: 100%;
-            li {
-              height: 18%;
-              width: 100%;
-            }
-          }
-          p {
-            display: block;
-            font-family: "lato-light";
-            padding: 0;
-            width: 100%;
-          }
-        }
-      }
-      #syslide {
-        @include rounded_borders($royal_blue, 6px, 6px, 6px, 6px, 2px);
-        box-shadow: 2px 2px 2px $liteblu;
-        overflow: hidden;
-        position:relative;
-      }
-      #bbslide {
-        margin-bottom: 1.5em;
-        width: 48%;
-      }
-      .arrow {
-          position: absolute;
-          z-index: 1002;
-          display: block;
-          top: 50%;
-          width: 36px;
-          height: 71px;
-          outline: none;
-          cursor: pointer;
-          background: url(../images/blank.gif) no-repeat;
-      }
-      .arrow.prev {
-          opacity: 0.2;
-          background-image: url(../images/paddle_prev_999.png);
-          transition: 0.2s linear all;
-      }
-      .arrow.next {
-          opacity: 0.2;
-          background-image: url(../images/paddle_next_999.png);
-          transition: 0.2s linear all;
-          right: 1.5%;
-      }
-      .arrow.prev:hover {
-          opacity: 1;
-          background-image: url(../images/paddle_prev_fff.png);
-      }
-      .arrow.next:hover {
-          opacity: 1;
-          background-image: url(../images/paddle_next_fff.png);
-      }
-      /*---------------------------------------------------------
-      NAV
-      ---------------------------------------------------------*/
-      .gallerynav {
-          text-align: center;
-          display: block;
-          z-index: 1002;
-          bottom: -4px;
-          height: 48px;
-      }
-      .nonDraggableImage{
-          -webkit-user-drag: none;
-      }
-      .gallerynav .wrapper {
-          margin: 0 auto;
-          width: 100%;
-          padding: 1em 0 .8em;
-      }
-      .gallerynav ul {
-          margin: 0;
-          width: 100%;
-      }
-      .gallerynav .dot, .gallerynav .dot a {
-          display: inline-block;
-          zoom: 1;
-      }
-      .dots .dot {
-          position: relative;
-          margin: 0 8px;
-          width: 12px;
-          height: 12px;
-      }
-      .dots .dot a {
-          position: absolute;
-          top: 0.25rem;
-          left: 0.25rem;
-          width: 1rem;
-          height: 1rem;
-          text-indent: 100%;
-          white-space: nowrap;
-          overflow: hidden;
-          background: $base_blue;
-          border: 1px solid transparent;
-          outline: none;
-          -webkit-box-shadow: none;
-          -moz-box-shadow: none;
-          box-shadow: none;
-          -webkit-border-radius: 50%;
-          -moz-border-radius: 50%;
-          border-radius: 50%;
-          -webkit-transition: background-color 0.25s, border-color 0.25s;
-          -moz-transition: background-color 0.25s, border-color 0.25s;
-          transition: background-color 0.25s, border-color 0.25s;
-      }
-      .dots .dot a.active {
-          border-color: #FFF;
-          background-color: transparent;
-      }
-      .inner-slideshow {
-        font-family: "lato-light";
-        position: relative;
-        max-width: 100%;
-        h4 {
-          position: absolute;
-          left: 1%;
-          bottom: 0.5rem;
-        }
-        .top {
-          top: 0;
-          width: 100%;
-          padding: 1em 0 1em 2em;
-        }
-        .bottom {
-          bottom: 0.5em;
-          width: 100%;
-          padding: 1em 0 1em 2em;
-        }
-        img {
-          width: 100%;
-          height: 100%;
-        }
-      }
-      #theabout {
-        display: inline-block;
-        font-family: "lato-light";
-        font-size: 1rem;
-        line-height: 1.25rem;
-        margin-top: 0.5rem;
-        a {
-          text-decoration: none;
-          color: $liteblu;
-        }
-        h2 {
-          margin-left: 1em;
-          padding: 0;
-          font-size: 1.6em;
-        }
-        img {
-          width: 25%;
-          height: auto !important;
-          float: left;
-          margin: 1.5em 1.5em 1em;
-          box-shadow: 2px 2px 2px $liteblu;
-          & + p {
-              margin-top: 1rem;
-          }
+        display: block;
+        @include span(7 of 12);
+        @media screen and (max-width: 540px) {
+          @include span(12 of 12);
         }
         p {
-          padding: 0 0.5rem;
-          float: none;
-          @media screen and (max-width: 800px) {
-              font-size: 0.8rem;
+          margin-top: 0.5em;
+        }
+      }
+      h1 {
+        letter-spacing: 0.075em;
+        text-shadow: 1px 1px 1px $liteblu;
+        color: $flat_base;
+        font-family: "ranchersreg";
+        font-size: 1.7em;
+        margin: 0.7em 0 0 0.5em;
+        @media screen and (max-width: 400px) {
+          font-size: 1.2em;
+           margin: 0.7rem 0 0 0;
+        }
+      }
+      h3 {
+        font-size: 1.25em;
+        margin: 0.6em 0em 0em 1em;
+        @media screen and (max-width: 540px) {
+          font-size: 1.95em;
+          margin: 0.33rem 0 0 1rem;
+        }
+      }
+      #tel {
+        font-family: "lato";
+        color: $darkblu;
+        text-shadow: 1px 1px 1px #FF2A00;
+        font-size: 3.7em;
+        letter-spacing: 0.05em;
+        text-decoration: none;
+        float: left;
+        margin: 0.25rem 1rem 0rem 0.35rem;
+        padding: 0.75rem 0.4rem 0.75rem 4.5rem;
+        background : url('../images/sys/face-smile.svg') no-repeat 1% 51%;
+        @media screen and (max-width: 580px) {
+          font-size: 2.75rem;
+        }
+        @media screen and (max-width: 460px) {
+          font-size: 2.5rem;
+        }
+        @media screen and (max-width: 410px) {
+          font-size: 1.7rem;
+          letter-spacing: default;
+          margin: 0.25rem 0 0rem 0.35rem;
+        }
+        &:hover {
+          @include rounded_borders($darkrblu, 6px, 6px, 6px, 6px, 0px);
+          background : url('../images/sys/face-smile-big.svg') no-repeat center left;
+          text-shadow: 1px 1px 1px $darkrblu;
+          color: #FF1A00;
+          @extend %wiggle;
+        }
+        #tbone {
+          padding-right: 8%;
+          margin: 0.25em 0 0 0;
+          width: 10%;
+          &:hover {
+            // @extend %wiggle;
           }
+        }
+      }
+  }
+  header {
+    @include clearfix;
+    border-bottom: 1px solid $lgrey;
+    img {
+      float: left;
+      margin: 0.5em 0.5em 0 0.2em;
+      width: 25%;
+      @media screen and (max-width: 540px) {
+        width: 45%;
+        max-width: 100% !important;
+        height: auto !important;
+      }
+    }
+    p {
+      font-family: "lato";
+      font-size: 0.8em;
+      line-height: 1.25em;
+      margin: 0.6em 0em 0.5em 1.2em;
+      float: left;
+    }
+    h2 {
+      color: $white;
+      width: 6em;
+      float: left;
+    }
+    .google-map {
+      @include rounded_borders($royal_blue, 1px, 1px, 1px, 1px, 1px);
+      display: block;
+      height: 225px;
+      margin-top: 1.3em;
+      @media screen and (max-width: 550px) {
+        display: none;
+      }
+      .gmap_marker {
+        font-size: 0.65em;
+        h3 {
+            font-size: 1.1em;
+        }
+        p {
+            float: left;
+        }
+        img {
+            width: 30px;
+            height: 20px;
+        }
+      }
+    }
+    #roguectl {
+      position: relative;
+      display: block;
+      float: left;
+      margin-bottom: 0.5rem;
+      #rstop {
+        background: url(../images/sys/rstop.png) 0px 0px no-repeat;
+        display: block;
+        width: 32px;
+        height: 16px;
+        text-indent: -999px;
+        float: left;
+        margin-right: 0.5em;
+        &:hover {
+            background: url(../images/sys/rstop.png) 1px 1px no-repeat;
+            box-shadow: 1px 1px 2px rgba(0, 177, 255, 1);
+        }
+        &:active {
+            background: url(../images/sys/rstop_down.png) 1px 1px no-repeat;
+            box-shadow: 1px 1px 2px rgba(0, 177, 255, 1);
+        }
+      }
+      #rgo {
+        background: url(../images/sys/rgo.png) 0px 0px no-repeat;
+        display: block;
+        width: 32px;
+        height: 16px;
+        text-indent: -999px;
+        float: right;
+        &:hover {
+          background: url(../images/sys/rgo.png) 1px 1px no-repeat;
+          box-shadow: 1px 1px 2px rgba(0, 177, 255, 1);
+        }
+        &:active {
+          background: url(../images/sys/rgo_down.png) 1px 1px no-repeat;
+          box-shadow: 1px 1px 2px rgba(0, 177, 255, 1);
+        }
+      }
+    }
+    .rogues {
+      position: relative;
+      margin-left: 0.5em;
+      margin-bottom: 1em;
+      width: 98%;
+      height: 2.8em;
+      overflow: hidden;
+      @include rounded_borders($liteblu, 3px, 3px, 3px, 3px, 1px);
+      @media screen and (max-width: 320px) {
+        margin-bottom: 0.5rem;
+      }
+      ul {
+        list-style-type: none;
+        width: 2000em;
+        position: absolute;
+        li {
+          float: left;
+          width: 7.5em;
+          @include background-image(linear-gradient(top, $darkblu 0%, rgba(32, 124, 202, 0.5) 43%, rgba(125, 185, 232, 0.5) 100%));
+          h4 {
+            margin-left: 4.25em;
+            padding-top: 0.45em;
+            font-size: 0.8em;
+          }
+          a {
+            display: block;
+            height: 45px;
+            width: 45px;
+            color: $white;
+            text-decoration: none;
+            &:hover {
+                background-color: $base_blue;
+            }
+          }
+          .omid {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) 0px 0px no-repeat;
+          }
+          .aweatherall {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -45px 0px no-repeat;
+          }
+          .bellatrix {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) 0px -45px no-repeat;
+          }
+          .buttrich {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -45px -45px no-repeat;
+          }
+          .circ {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -90px 0px no-repeat;
+          }
+          .cdale {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -90px -45px no-repeat;
+          }
+          .cstmartin {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -225px -180px no-repeat;
+          }
+          .dtpm {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -45px -90px no-repeat;
+          }
+          .eddierichards {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -90px -90px no-repeat;
+          }
+          .gmac {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -135px 0px no-repeat;
+          }
+          .jazzyb {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -135px -45px no-repeat;
+          }
+          .joeynegro {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -135px -90px no-repeat;
+          }
+          .justinrobertson {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) 0px -135px no-repeat;
+          }
+          .jwinkonra {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -45px -135px no-repeat;
+          }
+          .lvis {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -90px -135px no-repeat;
+          }
+          .mathewjonson {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -135px -135px no-repeat;
+          }
+          .mothersole {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -180px 0px no-repeat;
+          }
+          .mrc {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -180px -45px no-repeat;
+          }
+          .nathan08 {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -180px -95px no-repeat;
+          }
+          .nholloway {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -180px -135px no-repeat;
+          }
+          .norman {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) 0px -225px no-repeat;
+          }
+          .owensoriginal {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) 0px -180px no-repeat;
+          }
+          .rampling {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) 0px -90px no-repeat;
+          }
+          .raymundo {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -45px -180px no-repeat;
+          }
+          .redbull {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -90px -180px no-repeat;
+          }
+          .redlight {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -135px -180px no-repeat;
+          }
+          .schlomo {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -180px -180px no-repeat;
+          }
+          .sbug {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -225px 0px no-repeat;
+          }
+          .superfreq {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -225px -45px no-repeat;
+          }
+          .terryf {
+              display: block;
+              width: 45px;
+              height: 45px;
+              background: url(../images/face/face.png) -225px -90px no-repeat;
+          }
+          .wiggleduo {
+              display: block;
+              background: url(../images/face/face.png) -225px -135px no-repeat;
+              width: 45px;
+              height: 45px;
+          }
+        }
+      }
+    }
+  }
+  #main {
+    display: inline;
+    font-family: "lato";
+    font-size: 1.05em;
+    color: $white;
+    margin-top: 1.75em;
+    position: relative;
+    @media screen and (max-width: 4800px) {
+      margin-top: 0.25rem;
+      padding: 0 0.25rem;
+    }
+    section {
+      display: inline;
+      float: left;
+      width: 46.5%;
+      margin: 0;
+      @include clearfix;
+      @media screen and (max-width: 640px) {
+        float: none;
+      }
+    }
+    #sysplus {
+      margin: 1% 0 4% 10%;
+      font-size: 1.25em;
+    }
+    #systag {
+      font-family: "lato-light";
+      font-size: 1.6em;
+
+      @media screen and (max-width: 480px) {
+        margin-left: 0;
+      }
+    }
+    #bblist {
+      width: 48%;
+      margin: 0 1%;
+    }
+    #syslide {
+      @include rounded_borders($royal_blue, 6px, 6px, 6px, 6px, 2px);
+      box-shadow: 2px 2px 2px $liteblu;
+      overflow: hidden;
+      position:relative;
+    }
+    #bbslide {
+      margin-bottom: 1.5em;
+      width: 48%;
+    }
+    .arrow {
+        position: absolute;
+        z-index: 1002;
+        display: block;
+        top: 50%;
+        width: 36px;
+        height: 71px;
+        outline: none;
+        cursor: pointer;
+        background: url(../images/blank.gif) no-repeat;
+    }
+    .arrow.prev {
+        opacity: 0.2;
+        background-image: url(../images/paddle_prev_999.png);
+        transition: 0.2s linear all;
+    }
+    .arrow.next {
+        opacity: 0.2;
+        background-image: url(../images/paddle_next_999.png);
+        transition: 0.2s linear all;
+        right: 1.5%;
+    }
+    .arrow.prev:hover {
+        opacity: 1;
+        background-image: url(../images/paddle_prev_fff.png);
+    }
+    .arrow.next:hover {
+        opacity: 1;
+        background-image: url(../images/paddle_next_fff.png);
+    }
+    /*---------------------------------------------------------
+    NAV
+    ---------------------------------------------------------*/
+    .gallerynav {
+        text-align: center;
+        display: block;
+        z-index: 1002;
+        bottom: -4px;
+        height: 48px;
+    }
+    .nonDraggableImage{
+        -webkit-user-drag: none;
+    }
+    .gallerynav .wrapper {
+        margin: 0 auto;
+        width: 100%;
+        padding: 1em 0 .8em;
+    }
+    .gallerynav ul {
+        margin: 0;
+        width: 100%;
+    }
+    .gallerynav .dot, .gallerynav .dot a {
+        display: inline-block;
+        zoom: 1;
+    }
+    .dots .dot {
+        position: relative;
+        margin: 0 8px;
+        width: 18px;
+        height: 18px;
+    }
+    .dots .dot a {
+        position: absolute;
+        top: 0.25rem;
+        left: 0.25rem;
+        width: 1rem;
+        height: 1rem;
+        text-indent: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        background: $base_blue;
+        border: 1px solid transparent;
+        outline: none;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        -webkit-transition: background-color 0.25s, border-color 0.25s;
+        -moz-transition: background-color 0.25s, border-color 0.25s;
+        transition: background-color 0.25s, border-color 0.25s;
+    }
+    .dots .dot a.active {
+        border-color: #FFF;
+        background-color: transparent;
+    }
+    .inner-slideshow {
+      font-family: "lato-light";
+      position: relative;
+      max-width: 100%;
+      h4 {
+        position: absolute;
+        left: 1%;
+        bottom: 0.5rem;
+      }
+      .top {
+        top: 0;
+        width: 100%;
+        padding: 1em 0 1em 2em;
+      }
+      .bottom {
+        bottom: 0.5em;
+        width: 100%;
+        padding: 1em 0 1em 2em;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    #theabout {
+      display: inline-block;
+      font-family: "lato-light";
+      font-size: 1rem;
+      line-height: 1.25rem;
+      margin-top: 0.5rem;
+      a {
+        text-decoration: none;
+        color: $liteblu;
+      }
+      h2 {
+        margin-left: 1em;
+        padding: 0;
+        font-size: 1.6em;
+      }
+      img {
+        width: 25%;
+        height: auto !important;
+        float: left;
+        margin: 1.5em 1.5em 1em;
+        box-shadow: 2px 2px 2px $liteblu;
+        & + p {
+            margin-top: 1rem;
         }
       }
       p {
-        float: left;
+        padding: 0 0.5rem;
+        float: none;
+        @media screen and (max-width: 800px) {
+            font-size: 0.8rem;
+        }
       }
     }
-    #footer {
-      @include sticky-footer(1em);
-      position: relative;
+    p {
+      float: left;
     }
-    #footnav {
-        @include horizontal-list-container;
-        overflow: visible;
-        a {
-          display: block;
-          color: $white;
-          text-decoration: none;
-          text-shadow: 2px 1px 1px $dgrey;
-          padding: 0.25em 1em;
-          &:hover {
-            @include background-image(linear-gradient(top, rgba(125, 185, 232, 0.05) 0%, rgba(32, 124, 202, 0.05) 43%, $darkblu 100%));
-            color: $royal_blue;
-            text-shadow: 2px 1px 0px #000000;
-          }
-          @media screen and (max-width: 480px) {
-            border: none;
-            text-shadow: none;
-          }
+  }
+  #col1 {
+    display: block;
+    left: 0;
+    top: 0;
+    margin-right: 1.2rem;
+    height: 100%;
+    max-height: 100% !important;
+    width: 30%;
+    float: left;
+  }
+  #col2 {
+    @include clearfix;
+    overflow: visible;
+    font-family: "lato-light";
+    line-height: 1.75em;
+    display: block;
+    margin-top: 2em;
+    width: 33%;
+    float: left;
+    @media screen and (max-width: 480px) {
+      line-height: 0.85em;
+      margin-top: 0;
+    }
+    img {
+      margin: 5% 0%;
+      max-width: 100% !important;
+      @media screen and (max-width: 480px) {
+        max-width: 100% !important;
+        height: auto !important;
+        margin: 0;
+      }
+    }
+    p {
+      text-align: center;
+      font-size: 1.2em;
+      line-height: 1.05em;
+      @media screen and (max-width: 640px) {
+        font-size: 0.85rem;
+      }
+      @media screen and (max-width: 550px) {
+        font-size: 0.65em;
+      }
+    }
+  }
+  #col3 {
+    display: block;
+    position: relative;
+    height: 100%;
+    max-height: 100% !important;
+    width: 30%;
+    margin: 0;
+    float: right;
+  }
+  #manf {
+    @include clearfix;
+    display: inline-block;
+    margin: 0 auto;
+    p {
+      font-size: 0.8em;
+      width: 100%;
+      padding: 0.5rem 0;
+    }
+    .bottom {
+      display: table;
+      margin: 0 auto;
+    }
+    ul {
+      @include horizontal-list;
+      display: inline-table;
+      margin: 0 auto;
+      padding: 0.4rem 0rem 1.4rem;
+    }
+    li {
+      padding: 0em 1.5em;
+      position: relative;
+      perspective: 1000px;
+      @media screen and (max-width: 550px) {
+        padding: 0;
+      }
+      a {
+        display: block;
+        border: 1px solid transparent;
+        /*disabling the translucent black bg on the main image*/
+        background-size: 0, cover;
+        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
+        /*3d space for children*/
+        transform-style: preserve-3d;
+        transition: all 0.5s;
+        .top {
+            border: 1px solid $white;
         }
+        &:hover {
+          border: 1px solid $base_blue;
+          transform: rotateX(80deg); transform-origin: bottom;
+        }
+        &:before {
+          opacity: 1;
+          /*blurred effect using box shadow as filter: blur is not supported in all browsers*/
+          box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.5);
+          /*pushing the shadow down and scaling it down to size*/
+          transform: rotateX(0) translateZ(-60px) scale(0.85);
+        }
+      }
+      &:after {
+        /*36px high element positioned at the bottom of the image*/
+        content: ''; position: absolute; left: 0; bottom: 0;
+        width: 100%; height: 1.5rem;
+        /*inherit the main BG*/
+        background-size: cover, cover;
+        /*draw the BG bottom up*/
+        background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4));
+        background-position: bottom;
+        /*rotate the surface 90deg on the bottom axis*/
+        transform: rotateX(90deg); transform-origin: bottom;
+      }
+      &:before {
+        content: ''; position: absolute; top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 100px 50px rgba(0, 0, 0, 0.5);
+        transition: all 0.5s;
+        /*by default the shadow will be almost flat, very transparent, scaled down with a large blur*/
+        opacity: 0.15;
+        transform: rotateX(95deg) translateZ(-80px) scale(0.75);
+        transform-origin: bottom;
+      }
+      span {
+        color: white;
+        text-transform: uppercase;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        font-size: 0.7rem;
+        text-align: center;
+        /*the rotation is a bit less than the bottom surface to avoid flickering*/
+        transform: rotateX(-89.99deg); transform-origin: top;
+        z-index: 1;
+      }
+    }
+  }
+  .bss {
+      background: url(../images/thumbs/sprite.png) 0px -26px no-repeat;
+      display: block;
+      width: 74px;
+      height: 73px;
+  }
+  .qsc {
+      background: url(../images/thumbs/sprite.png) -77px 0px no-repeat;
+      display: block;
+      width: 74px;
+      height: 16px;
+  }
+  .shure {
+      background: url(../images/thumbs/sprite.png) -77px -18px no-repeat;
+      display: block;
+      width: 74px;
+      height: 73px;
+  }
+  .soundweb {
+      background: url(../images/thumbs/sprite.png) -153px 0px no-repeat;
+      display: block;
+      width: 74px;
+      height: 73px;
+  }
+  .vdam {
+      background: url(../images/thumbs/sprite.png) -153px -75px no-repeat;
+      display: block;
+      width: 74px;
+      height: 24px;
+  }
+  .xta {
+      background: url(../images/thumbs/sprite.png) 0px 0px no-repeat;
+      display: block;
+      width: 75px;
+      height: 24px;
+  }
+  #topcell {
+    display: inline-block;
+    margin-top: 0.5rem;
+    &+p {
+      @media screen and (max-width: 480px) {
+        font-size: 1rem;
+      }
+      @media screen and (max-width: 400px) {
+        font-size: 0.85rem;
+        margin-top: 1rem;
+      }
+    }
+  }
+  .accordion {
+    overflow: hidden;
+    list-style: none;
+    margin-bottom: 1em;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+    @include rounded_borders($liteblu, 6px, 6px, 6px, 6px, 1px);
+    li {
+      float: left;
+      width: 100%;
+      overflow: hidden;
+      height: 100%;
+      -moz-transition: width 0.2s ease-out;
+      -webkit-transition: width 0.2s ease-out;
+      -o-transition: width 0.2s ease-out;
+      transition: width 0.2s ease-out;
+      -moz-transition-delay: 0.15s;
+      -webkit-transition-delay: 0.15s;
+      -o-transition-delay: 0.15s;
+      transition-delay: 0.15s;
+    }
+    div {
+      padding: 0em 0.75em 1em;
+      @include clearfix;
+      p {
+        padding: 0 0.5em 1em;
+        line-height: 1.2em;
+        font-size: 1em;
+      }
+      span {
+        bottom: 1.8em;
+        float: right;
+        font-size: 1.25em;
+        padding: 0.25em 2em;
+        //margin-top:1.5em;
+        color: $base_blue;
+        text-shadow: 1px 1px 1px $darkrblu;
+        @include rounded_borders($darkblu, 6px, 6px, 6px, 6px, 2px);
+        background-color: $darkrblu;
+        &:hover {
+          font-family: "lato";
+          font-size: 1.5em;
+          padding: 0.15em 1.5em;
+          @include rounded_borders(#ff2a00, 6px, 6px, 6px, 6px, 2px);
+          background-color: $white;
+          letter-spacing: 0.2em;
+          color: #FF2A00;
+        }
+      }
+      .pre {
+        font-size: 0.95em;
+      }
+      .pricer {
+        margin-top: 8%;
+        font-size: 1.8em;
+      }
+    }
+    h2 {
+      display: inline-block;
+      font-size: 2.0em;
+      // margin-left:0.5em;
+      padding-bottom: 0.5em;
+      word-spacing: 0.05em;
+      letter-spacing: 0.3em;
+      @media screen and (max-width: 400px) {
+          font-size: 0.8rem;
+      }
+    }
+    h3 {
+      color: lighten($liteblu, 24);
+      font-size: 1.65em;
+      margin: 0.25em 0em 0em;
+      text-shadow: 1px 1px 1px $literblu;
+    }
+    dd {
+      display: inline-block;
+    }
+  }
+  #vertical {
+    height: 303px;
+    @include background-image(linear-gradient(top, $darkblu 0%, rgba(32, 124, 202, 0.5) 43%, rgba(125, 185, 232, 0.5) 100%));
+    box-shadow: 2px 2px 2px $liteblu;
+    li {
+      float: none;
+      height: 18%;
+      width: 100%;
+      -moz-transition: height 0.2s ease-out;
+      -webkit-transition: height 0.2s ease-out;
+      -o-transition: height 0.2s ease-out;
+      transition: height 0.2s ease-out;
+      @media screen and (max-width: 400px) {
+          font-size: 1.05rem;
+      }
+      &:last-of-type {
+        -moz-border-radius: 0 0 10px 10px;
+        -webkit-border-radius: 0 0 10px 10px;
+        -o-border-radius: 0 0 10px 10px;
+        border-radius: 0 0 10px 10px;
+      }
+      &:hover {
+        height: 65%;
+        width: 100%;
         li {
-          @include background-image(linear-gradient(top, $darkblu 0%, rgba(32, 124, 202, 0.5) 43%, rgba(125, 185, 232, 0) 100%));
-          float: left;
-          padding-left: 0;
-          @media screen and (max-width: 480px) {
-            float: none;
-          }
+          height: 18%;
+          width: 100%;
         }
-        &:first-child {
-          padding-left: 0.25em;
-          @media screen and (max-width: 480px) {
-            padding: 0;
-          }
-        }
+      }
+      p {
+        display: block;
+        font-family: "lato-light";
+        padding: 0;
+        width: 100%;
+      }
+    }
+  }
+  #footer {
+    @include sticky-footer(1em);
+    position: relative;
+  }
+  #footnav {
+    @include horizontal-list-container;
+    overflow: visible;
+    a {
+      display: block;
+      color: $white;
+      text-decoration: none;
+      text-shadow: 2px 1px 1px $dgrey;
+      padding: 0.25em 1em;
+      &:hover {
+        @include background-image(linear-gradient(top, rgba(125, 185, 232, 0.05) 0%, rgba(32, 124, 202, 0.05) 43%, $darkblu 100%));
+        color: $royal_blue;
+        text-shadow: 2px 1px 0px #000000;
+      }
+      @media screen and (max-width: 480px) {
+        border: none;
+        text-shadow: none;
+      }
+    }
+    li {
+      @include background-image(linear-gradient(top, $darkblu 0%, rgba(32, 124, 202, 0.5) 43%, rgba(125, 185, 232, 0) 100%));
+      float: left;
+      padding-left: 0;
+      @media screen and (max-width: 480px) {
+        float: none;
+      }
+    }
+    &:first-child {
+      padding-left: 0.25em;
+      @media screen and (max-width: 480px) {
+        padding: 0;
+      }
     }
   }
   .push {
     height: 2em;
   }
-  .page        {
+  .page {
     bottom:0;
     position:absolute;
     text-align:center;
@@ -1116,43 +1119,40 @@ body {
     cursor: pointer;
     text-decoration: none;
   }
-
   .angular-accordion-container {
       height: 100%;
       width: 100%;
   }
   .angular-accordion-pane {
-      padding: 2px;
+    padding: 2px;
   }
   .angularaccordionheaderselected {
       color: $lgrey;
       background-color: $darkrblu;
       font-weight: bold;
       letter-spacing: 0.25%;
-  }
+√√  }
   .angular-accordion-header:hover {
-
   }
   .angularaccordionheaderselected:hover {
-
   }
   .angular-accordion-pane-content {
-      padding: 1% 5%;
-      overflow-y: auto;
-      border-left: 1px solid #bbb;
-      border-right: 1px solid #bbb;
-      border-bottom: 1px solid #bbb;
-      -webkit-border-bottom-left-radius: 5px;
-      -webkit-border-bottom-right-radius: 5px;
-      -moz-border-radius-bottomleft: 5px;
-      -moz-border-radius-bottomright: 5px;
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 5px;
-      @media screen and (max-width: 480px) {
-        font-size: 0.8rem;
-      }
+    padding: 1% 5%;
+    overflow-y: auto;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    -webkit-border-bottom-left-radius: 5px;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-radius-bottomleft: 5px;
+    -moz-border-radius-bottomright: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    @media screen and (max-width: 480px) {
+      font-size: 0.8rem;
+    }
   }
   .angulardisabledpane {
-      opacity: .2;
+    opacity: .2;
   }
 }

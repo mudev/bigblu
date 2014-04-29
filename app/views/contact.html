@@ -7,7 +7,7 @@
   </ul>
 </div>
 <div ng-controller="ContactCtrl">
-  <form class="jotform-form" action="http://submit.jotformeu.com/submit/22683541517354/" method="post" name="form_22683541517354" id="22683541517354" accept-charset="utf-8" ng-submit="submitForm()" novalidate>
+  <form class="jotform-form" action="http://submit.jotformeu.com/submit/22683541517354/" method="post" name="form_22683541517354" id="22683541517354" accept-charset="utf-8" ng-submit="submitForm(form_22683541517354.$valid)" novalidate>
   <!-- novalidate on form to disable html5 browser validation -->
   <input type="hidden" name="formID" value="22683541517354" />
   <div class="form-all">
@@ -18,24 +18,34 @@
           <pre>its only to get in touch with us.We're just guys with big speakers who love to hear them roar.Email spammers we are not.</pre>
         </div>
       </li>
+      <!--               NAME                 -- >
       <li class="form-line" id="id_3">
+
         <label class="form-label-left" for="input_3">
           Name<span class="form-required">*</span>
         </label>
+
         <div class="form-input">
           <input type="text" class="form-textbox" id="input_3" name="q3_name" size="26" ng-model="form_22683541517354.name" autofocus required/> 
         </div>
-        <p ng-show="form_22683541517354.name.$invalid && !form_22683541517354.name.$pristine" class="help-block">You name is required.</p>
+
+        <p ng-show="form_22683541517354.q3_name.$invalid && !form_22683541517354.q3_name.$pristine" class="help-block">You name is required.</p>
       </li>
+      <!--               EMAIL                 -- >
       <li class="form-line">
+
         <label class="form-label-left" for="input_4">
           Your Email<span class="">*</span>
         </label>
+
         <div class="form-input">
-          <input type="text" class="form-textbox" name="q4_yourEmail" size="26" ng-model="form_22683541517354.email" required/>
+          <input type="email" class="form-textbox" name="q4_yourEmail" size="26" ng-model="form_22683541517354.q4_yourEmail" required/>
         </div>
-        <p ng-show="form_22683541517354.email.$invalid && !form_22683541517354.email.$pristine" class="">Enter a valid email.</p>
+
+        <p ng-show="form_22683541517354.q4_yourEmail.$invalid && !form_22683541517354.q4_yourEmail.$pristine" class="">Enter a valid email.</p>
+
       </li>
+      <!--               SUBJECT                -- >
       <li class="form-line">
         <label class="form-label-left" for="input_5">
           Subject<span class="form-required">*</span>
@@ -44,6 +54,7 @@
           <input type="text" class="form-textbox" name="q5_subject" size="26" />
         </div>
       </li>
+      <!--               MESSAGE                -- >
       <li>
         <label class="form-label-left" for="input_6">
           Message<span class="form-required">*</span>
@@ -55,7 +66,7 @@
       <li class="form-line form-line-column">
         <div class="form-input-wide">
           <div class="form-buttons-wrapper">
-            <button type="submit" class="form-submit-button" ng-disabled="form_22683541517354.$invalid">
+            <button type="submit" class="form-submit-button" ng-disabled="form_22683541517354.$invsalid">
               Send
             </button>
           </div>

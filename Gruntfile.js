@@ -146,7 +146,17 @@ module.exports = function (grunt) {
           }
       }
     },
-
+    browserSync: {
+      dev: {
+        bsFiles: {
+            src : '.tmp/styles/*.css'
+        },
+        options: {
+            watchTask: true,
+            host : "169.254.200.186"
+        }
+      }
+    },
     // not used since Uglify task does concat,
     // but still available if needed
     /*concat: {
@@ -321,6 +331,7 @@ module.exports = function (grunt) {
       'clean:server',
       'concurrent:server',
       'autoprefixer',
+      "browserSync",
       'connect:livereload',
       'watch'
     ]);
@@ -354,4 +365,5 @@ module.exports = function (grunt) {
     'test',
     'build'
   ]);
+  grunt.loadNpmTasks('grunt-browser-sync');
 };
