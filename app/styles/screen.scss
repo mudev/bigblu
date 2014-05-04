@@ -718,7 +718,6 @@ body {
       }
       img {
         width: 100%;
-        height: 100%;
       }
     }
     #theabout {
@@ -763,7 +762,6 @@ body {
     left: 0;
     top: 0;
     margin-right: 1.2rem;
-    height: 100%;
     max-height: 100% !important;
     width: 30%;
     float: left;
@@ -805,7 +803,6 @@ body {
   #col3 {
     display: block;
     position: relative;
-    height: 100%;
     max-height: 100% !important;
     width: 30%;
     margin: 0;
@@ -840,9 +837,6 @@ body {
       a {
         display: block;
         border: 1px solid transparent;
-        /*disabling the translucent black bg on the main image*/
-        background-size: 0, cover;
-        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
         /*3d space for children*/
         transform-style: preserve-3d;
         transition: all 0.5s;
@@ -1131,7 +1125,7 @@ body {
       background-color: $darkrblu;
       font-weight: bold;
       letter-spacing: 0.25%;
-√√  }
+  }
   .angular-accordion-header:hover {
   }
   .angularaccordionheaderselected:hover {
