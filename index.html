@@ -1,0 +1,106 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Big Blue Audio UK- Now Even Bigger!</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+      <!-- build:css(.tmp) styles/main.css -->
+      <link rel="stylesheet" href="styles/screen.css">
+      <link href="bower_components/angular-carousel/dist/angular-carousel.css" rel="stylesheet"/>
+      <!-- endbuild -->
+</head>
+<body ng-app="bbangApp">
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+  <![endif]-->
+  <div class="container">
+    <header ng-controller="AppCtrl">
+      <img src="images/BBLogo.png" alt="Big Blue Audio Logo">
+      <nav id="nav" >
+        <ul>
+          <li ng-class="homeActive"><a href="#">Home</a></li>
+          <li ng-class="systemsActive"><a href="#/systems">Systems</a></li>
+          <li ng-class="termsActive"><a href="#/terms">Terms</a></li>
+          <li ng-class="aboutActive"><a href="#/about">About Us</a></li>
+          <li ng-class="contactActive"><a href="#/contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div id="hblock">
+        <section>
+          <h1>Welcome to Big Blue Audio UK</h1>
+            <h3>Turbosound P.A. Hire in the London Area</h3>
+            <p>All of our PA systems are installed and run by our friendly &amp; helpful engineers.</p>
+            <p>Call us for your personal quote today</p>
+        </section>
+        <div class="google-map" <!-- hello-maps="" --></div>
+        <a id="tel" href="callto:07775893130" target="_self">07775 893130</a>
+        <!-- <a id="tel" href="callto:07775893130" target="_self"><img id="tbone" src="images/sys/mobile.png" alt="mobile logo">07775 893130</a> -->
+      </div>
+      <!-- <div id="roguectl">
+          <h2>Our Clients:</h2>
+          <a id="rstop" href="">pause</a>
+          <a id="rgo" href="">play</a>
+      </div> -->
+      <div class="rogues" tooltip="swipe me">
+        <ul rn-carousel>
+          <li ng-repeat="client in clients"><a class="{{client.logo}}" href="{{client.url}}"><h4>{{client.name}}</h4></a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="main" class="page {{pageClass}}" ng-view="">
+    <div class="push"></div>
+  </div>
+  <div id="footer">
+    <nav id="footnav" ng-controller="AppCtrl">
+      <ul>
+        <li ng-class="homeActive"><a href="#">Home</a></li>
+        <li ng-class="systemsActive"><a href="#/systems">Systems</a></li>
+        <li ng-class="termsActive"><a href="#/terms">Terms</a></li>
+        <li ng-class="aboutActive"><a href="#/about">About Us</a></li>
+        <li ng-class="contactActive"><a href="#/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+  <!--<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=AIzaSyDGVchg4qDTw3PzSjrDrgCNqT_5xu4ZPPs" ></script> -->
+  <script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
+    <!-- insert Ga Script here -->
+  <script src="scripts/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <!-- build:js scripts/modules.js -->
+  <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-carousel/dist/angular-carousel.js"></script>
+  <script src="bower_components/angular-carousel/lib/angular-mobile.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.min.js"></script>
+  <script src="scripts/vendor/angular-accordion.js"></script>
+  <script src="scripts/vendor/flowtype.js"></script>
+  <script src="scripts/vendor/TweenMax.min.js"></script>
+  <!-- endbuild -->
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/controllers/terms.js"></script>
+  <script src="scripts/controllers/systems.js"></script>
+  <script src="scripts/controllers/contact.js"></script>
+
+  <!-- endbuild -->
+  <!-- browser-sync for dev -->
+  <!-- <script src="//192.168.1.6:3000/socket.io/socket.io.js"></script>
+  <script type="text/javascript">
+    var ___socket___ = io.connect('http://192.168.1.6:3000');
+  </script>
+  <script src="//192.168.1.6:3001/client/browser-sync-client.0.8.0.js"></script> -->
+
+</body>
+</html>
