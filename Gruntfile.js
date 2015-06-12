@@ -153,7 +153,7 @@ module.exports = function (grunt) {
         },
         options: {
             watchTask: true,
-            host : "169.254.200.186"
+            host : "192.168.1.6"
         }
       }
     },
@@ -366,4 +366,5 @@ module.exports = function (grunt) {
     'build'
   ]);
   grunt.loadNpmTasks('grunt-browser-sync');
+  // grunt.loadNpmTasks('grunt-html-snapshot');
 };

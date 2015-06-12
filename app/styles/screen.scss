@@ -7,6 +7,7 @@
 @import "compass/utilities/general/clearfix";
 @import "compass/css3/font-face";
 @import "compass/css3/images";
+@import "compass/css3/deprecated-support";
 @import "compass/layout/stretching";
 @import "compass/layout/sticky-footer";
 @import "compass/typography/lists/horizontal-list";
@@ -180,7 +181,7 @@ body {
       @include clearfix;
       padding: 1rem 0.25rem 0;
       margin-bottom: 0.5em;
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 640px) {
         float: left;
       }
       section {
@@ -202,7 +203,8 @@ body {
         margin: 0.7em 0 0 0.5em;
         @media screen and (max-width: 400px) {
           font-size: 1.2em;
-           margin: 0.7rem 0 0 0;
+          text-align: center;
+          margin: 0.7rem 0 0 0;
         }
       }
       h3 {
@@ -215,13 +217,15 @@ body {
       }
       #tel {
         font-family: "lato";
+        text-align: center;
         color: $darkblu;
         text-shadow: 1px 1px 1px #FF2A00;
         font-size: 3.7em;
         letter-spacing: 0.05em;
         text-decoration: none;
         float: left;
-        margin: 0.25rem 1rem 0rem 0.35rem;
+        //margin: 0.25rem 1rem 0rem 0.35rem;
+        margin: 0.25rem auto;
         padding: 0.75rem 0.4rem 0.75rem 4.5rem;
         background : url('../images/sys/face-smile.svg') no-repeat 1% 51%;
         @media screen and (max-width: 580px) {
@@ -260,7 +264,7 @@ body {
       margin: 0.5em 0.5em 0 0.2em;
       width: 25%;
       @media screen and (max-width: 540px) {
-        width: 45%;
+        width: 33%;
         max-width: 100% !important;
         height: auto !important;
       }
@@ -610,10 +614,10 @@ body {
       width: 48%;
     }
     .arrow {
-        position: absolute;
+        position: relative;
         z-index: 1002;
         display: block;
-        top: 50%;
+        top: -13rem;
         width: 36px;
         height: 71px;
         outline: none;
@@ -621,15 +625,16 @@ body {
         background: url(../images/blank.gif) no-repeat;
     }
     .arrow.prev {
-        opacity: 0.2;
+        // opacity: 0.2;
         background-image: url(../images/paddle_prev_999.png);
         transition: 0.2s linear all;
     }
     .arrow.next {
-        opacity: 0.2;
+        // opacity: 0.2;
         background-image: url(../images/paddle_next_999.png);
         transition: 0.2s linear all;
-        right: 1.5%;
+        left: 26.5rem;
+        top: -17rem;
     }
     .arrow.prev:hover {
         opacity: 1;
